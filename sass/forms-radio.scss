@@ -1,0 +1,62 @@
+@layer components {
+  .radio-label {
+    // Label styling
+    display: block;
+    margin-bottom: 0.5rem;
+
+    input[type="radio"] {
+      // Hidden but accessible
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+      position: absolute;
+    }
+
+    span {
+      padding-left: 1rem;
+      position: relative;
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0.625rem;
+        height:0.625rem;
+        border-radius: 50%;
+        border: 0.125rem solid theme("colors.gray.500");
+      }
+      &:after {
+        // content: '';
+        // position: absolute;
+        // left: 0.175rem;
+        // top: 50%;
+        // transform: translateY(-50%) scale(0);
+        // width: 0.265rem;
+        // height: 0.265rem;
+        // border-radius: 50%;
+        // background: white;
+        // transition: transform 0.2s ease-in-out;
+        // More styling as needed
+      }
+    }
+
+    input[type="radio"]:checked {
+      & + span {
+        @apply text-primary-500 font-bold;
+        
+        &:before {
+          border-color: theme("colors.primary.500");
+          background: theme("colors.primary.500");
+        }
+
+        &:after {
+          transform: translateY(-50%) scale(1);
+        }
+      }
+    }
+
+    // Additional styles as needed
+  }
+}

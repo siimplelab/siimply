@@ -1,0 +1,35 @@
+@layer components {
+
+  .icon {
+    @apply inline-flex items-center justify-center;
+    width: 1rem;
+    height: 1rem;
+    font-size: 1rem;
+
+    &.--small {
+      width: 0.75rem;
+      height: 0.75rem;
+      font-size: 0.75rem;
+    }
+
+    &.--large {
+      width: 1.25rem;
+      height: 1.25rem;
+      font-size: 1.25rem;
+    }
+
+    &.--xlarge {
+      width: 1.5rem;
+      height: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    &.--primary {
+      @apply text-primary-500;
+    }
+
+    & + .button-text {
+      @apply ml-1;
+    }
+  }
+}

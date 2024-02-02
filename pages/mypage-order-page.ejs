@@ -1,0 +1,366 @@
+---
+layout: layout-mypage
+pageTitle: 마이페이지 - 주문페이지
+---
+
+<div
+  id="contentWrapper"
+  class="px-4 flex flex-wrap lg:flex-nowrap space-x-0 lg:space-x-4 container mx-auto w-full"
+>
+  <div class="content-section flex-grow md:w-auto w-full mt-4 lg:mt-0">
+    <div class="card py-8">
+      <div class="card-content-container w-full">
+        <div class="item-detail max-w-full">
+          <div class="item-detail__head mb-8">
+            <div class="item-detail__back-btn">
+              <button
+                type="button"
+                aria-label="뒤로 가기"
+                data-name="backButton"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="2.25rem"
+                  height="2.25rem"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                >
+                  <path
+                    d="M11.7375 19.5L20.1375 27.9L18 30L6 18L18 6L20.1375 8.1L11.7375 16.5H30V19.5H11.7375Z"
+                    fill="#1C1C1F"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="item-detail__title ml-8 justify-start">
+              <h2>주문하기</h2>
+            </div>
+          </div>
+          <div class="item-detail__body space-y-4">
+            <!-- 회사별 상태 -->
+            <div class="content-box mb-8 py-8">
+              <div
+                class="text-smxs flex items-start md:items-center md:flex-row flex-col"
+              >
+                <div class="status-item">
+                  <div class="text-group">
+                    <span>미수금</span>
+                  </div>
+                  <div class="status-content">
+                    <div class="amount-status">
+                      <div class="amount-status-item">
+                        <span class="amount-status-item-tag bg-primary-500"
+                          >아</span
+                        >
+                        <span class="amount-status-item-title">아이온에듀</span>
+                      </div>
+                      <div class="amount-status-item">
+                        <span class="amount-status-item-tag bg-secondary-500"
+                          >레</span
+                        >
+                        <span class="amount-status-item-title">아이온에듀</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 주문상품 -->
+            <div class="content-group py-4">
+              <h3 class="text-xl font-bold">주문상품</h3>
+              <div class="data-table-item mt-4 overflow-x-auto w-full">
+                <div class="data-table text-xs mb-2 --white">
+                  <table>
+                    <caption>
+                      데이터테이블
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th>상품</th>
+                        <th>가격</th>
+                        <th>수량</th>
+                        <th>소계</th>
+                        <th>제거</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% for (let i = 0; i < 1; i++) { %>
+                      <tr>
+                        <td>
+                          <div class="custom-checkbox --slim">
+                            <input
+                              type="checkbox"
+                              id="checkbox1"
+                              data-name="checkboxInput"
+                              class="hidden checkbox-input"
+                            />
+                            <label
+                              for="checkbox1"
+                              class="checkbox-label"
+                            ></label>
+                            <label for="checkbox1" class="ml-2">A상품</label>
+                          </div>
+                        </td>
+                        <td>3,500원</td>
+                        <td>
+                          <div class="stepper --small" aria-label="Quantity">
+                            <button
+                              class="stepper-minus button --outline"
+                              aria-label="Decrease value"
+                            >
+                              -
+                            </button>
+                            <input
+                              type="text"
+                              class="stepper-input"
+                              aria-valuenow="0"
+                              value="0"
+                              role="spinbutton"
+                              aria-valuemin="0"
+                            />
+                            <button
+                              class="stepper-plus button --outline"
+                              aria-label="Increase value"
+                            >
+                              +
+                            </button>
+                          </div>
+                        </td>
+                        <td>3,500원</td>
+                        <td>
+                          <button class="button relative --outline --close">
+                            <span class="sr-only">닫기</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <% } %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!-- 결제 정보 + 배송 메시지 -->
+            <div class="grid grid-cols-2 max-md:grid-cols-1 gap-4">
+              <div class="content-group py-4">
+                <h3 class="text-xl font-bold">결제 정보</h3>
+                <div class="data-table-item mt-4 overflow-x-auto w-full">
+                  <div class="data-table --simple text-xs mb-2 --white">
+                    <table>
+                      <caption>
+                        데이터테이블
+                      </caption>
+                      <thead>
+                        <tr>
+                          <th>충 주문금액</th>
+                          <th>배송비</th>
+                          <th>총 결제금액</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% for (let i = 0; i < 1; i++) { %>
+                        <tr>
+                          <td>3,500원</td>
+                          <td>
+                            <div class="custom-cell flex flex-col space-y-2">
+                              <span>3,500원</span>
+                              <fieldset class="radio-group">
+                                <legend
+                                  class="radio-legend text-lg font-semibold mb-2 sr-only"
+                                >
+                                  원하는 항목을 선택하세요
+                                </legend>
+                                <label class="radio-label">
+                                  <input
+                                    type="radio"
+                                    name="options"
+                                    value="option1"
+                                    data-radio
+                                    checked
+                                  />
+                                  <span>일반배송</span>
+                                </label>
+                                <label class="radio-label">
+                                  <input
+                                    type="radio"
+                                    name="options"
+                                    value="option2"
+                                    data-radio
+                                  />
+                                  <span>화물운송</span>
+                                </label>
+                                <label class="radio-label">
+                                  <input
+                                    type="radio"
+                                    name="options"
+                                    value="option3"
+                                    data-radio
+                                  />
+                                  <span>방문수령</span>
+                                </label>
+                              </fieldset>
+                            </div>
+                          </td>
+                          <td>3,500원</td>
+                        </tr>
+                        <% } %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="content-group py-4">
+                <h3 class="text-xl font-bold">배송 메시지</h3>
+                <div
+                  class="form-item mt-4 flex flex-col border-t-1 border-gray-500 pt-4"
+                >
+                  <h5 class="box-sub-title mb-3">주문 메모</h5>
+                  <div class="text-area">
+                    <label for="message" class="text-area-label hidden"
+                      >텍스트 입력창</label
+                    >
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="4"
+                      class="text-area-field"
+                      placeholder="주문 관련 메시지, 예) 배송 관련 메모"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 배송지 정보 + 결제 수단 -->
+            <div class="grid grid-cols-2 max-md:grid-cols-1 gap-4">
+              <div class="content-group py-4">
+                <h3 class="text-xl font-bold">배송지 정보</h3>
+                <div
+                  class="data-group mt-4 flex flex-col border-t-1 border-gray-500 pt-4"
+                >
+                  <ul class="data-list">
+                    <% for (let i = 0; i < 2; i++) { %>
+                    <li
+                      class="data-list-item py-6 first:pt-0 last:pb-0 last:border-0 border-b border-gray-300"
+                    >
+                      <div class="data-item-content space-y-2">
+                        <div class="text-lg font-bold text-gray-darker">
+                          <div class="custom-checkbox">
+                            <input
+                              type="checkbox"
+                              id="checkbox1"
+                              data-name="checkboxInput"
+                              class="hidden checkbox-input"
+                            />
+                            <label
+                              for="checkbox1"
+                              class="checkbox-label"
+                            ></label>
+                            <label for="checkbox1" class="ml-2">
+                              레온어린이집3
+                            </label>
+                          </div>
+                        </div>
+                        <div class="flex space-x-2">
+                          <span>010-3333-3333</span>
+                        </div>
+                        <div>(11111) 경기도 평택시 오성면 서동대로 2061-22</div>
+                      </div>
+                      <div
+                        class="button-group space-x-2 mt-4 flex items-center"
+                      >
+                        <% if (i === 0) { %>
+                        <span class="font-bold text-primary-500">기본 배송지</span>
+                        <% } %>
+                        <button
+                          class="flex items-center button --outline --small space-x-2"
+                        >
+                          <span>편집</span>
+                        </button>
+                        <button
+                          class="flex items-center button --outline --small space-x-2"
+                        >
+                          <span>삭제</span>
+                        </button>
+                        <button
+                          class="flex items-center button --outline --small space-x-2"
+                        >
+                          <span>기본 배송지 설정</span>
+                        </button>
+                      </div>
+                    </li>
+                    <% } %>
+                  </ul>
+                </div>
+              </div>
+              <div class="content-group py-4">
+                <h3 class="text-xl font-bold">결제 수단</h3>
+                <div
+                  class="content-group mt-4 flex flex-col border-t-1 border-gray-500 pt-4"
+                >
+                  <div
+                    class="content-item flex items-center bg-primary-500 rounded-xl text-white space-x-4 px-8 py-6 text-xl font-semibold"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="4rem"
+                      height="4rem"
+                      viewBox="0 0 64 64"
+                      fill="none"
+                    >
+                      <path
+                        d="M13.3335 45.3334V26.6667H18.6668V45.3334H13.3335ZM29.3335 45.3334V26.6667H34.6668V45.3334H29.3335ZM5.3335 56.0001V50.6667H58.6668V56.0001H5.3335ZM45.3335 45.3334V26.6667H50.6668V45.3334H45.3335ZM5.3335 21.3334V16.0001L32.0002 2.66675L58.6668 16.0001V21.3334H5.3335ZM17.2002 16.0001H46.8002L32.0002 8.66675L17.2002 16.0001Z"
+                        fill="white"
+                      />
+                    </svg>
+                    <span> 직접 은행 계좌 이체 </span>
+                  </div>
+                  <div class="content-box content-item mt-4">
+                    <div class="data-group flex flex-col space-y-2">
+                      <!-- 계좌 : 아이온에듀 -->
+                      <div class="amount-status-item">
+                        <span class="amount-status-item-tag bg-primary-500">아</span>
+                        <span class="amount-status-item-title">아이온에듀</span>
+                      </div>
+                      <% for (let i = 0; i < 2; i++) { %>
+                      <div class="data-item flex space-x-1">
+                        <dt class="font-bold">농협</dt>
+                        <dd>0000-000000-000</dd>
+                      </div>
+                      <% } %>
+                      <div class="amount-status-item pt-3">
+                        <span class="amount-status-item-tag bg-secondary-500">레</span>
+                        <span class="amount-status-item-title">레몬에듀</span>
+                      </div>
+                      <% for (let i = 0; i < 2; i++) { %>
+                      <div class="data-item flex space-x-1">
+                        <dt class="font-bold">농협</dt>
+                        <dd>0000-000000-000</dd>
+                      </div>
+                      <% } %>
+                    </div>
+                    <ul class="list-disc list-inside list mt-4">
+                      <li>이체 시 주문자 이름을 남겨 주시기 바랍니다.</li>
+                      <li>입금 확인 후에 주문하신 상품의 배송이 시작됩니다.</li>
+                    </ul>
+                  </div>
+                  <div class="text-xs text-gray-medium mt-3">
+                    * 귀하의 개인 데이터는 귀하의 주문을 처리하고, 이 웹사이트
+                    전체에서 귀하의 경험을 지원하고, 개인정보 보호정책에 설명된
+                    기타 목적을 위해 사용합니다.
+                  </div>
+                  <div class="action-group flex justify-end mt-8">
+                    <button
+                      class="button --solid --large w-48 border-primary-500 bg-primary-500"
+                      aria-label="Submit"
+                    >
+                      <span class="button-text">결제하기</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,192 @@
+---
+layout: layout-mypage
+pageTitle: 마이페이지 - AS신청
+---
+
+<div
+  id="contentWrapper"
+  class="px-4 flex flex-wrap lg:flex-nowrap space-x-0 lg:space-x-4 container mx-auto w-full"
+>
+  <%- include("../_includes/aside-content-mypage") %>
+  <div class="content-section flex-grow md:w-auto w-full mt-4 lg:mt-0">
+    <div class="card">
+      <form action="">
+        <div class="card-title flex items-center mb-4">
+          <h3>AS신청</h3>
+        </div>
+        <div class="card-content-container w-full mb-8">
+          <div
+            class="control-box mb-4 p-4 overflow-x-auto w-full border-1 border-solid border-gray-300 rounded-lg"
+          >
+            <div class="control-table mb-2">
+              <table>
+                <caption>
+                  컨트롤 테이블
+                </caption>
+                <thead>
+                  <tr>
+                    <th>상품</th>
+                    <th>개수</th>
+                    <th>주차선택</th>
+                    <th>완제품, 부품 <span class="text-red-500">*</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% dummyTableData.forEach(function(person, i) { %>
+                  <tr>
+                    <td>
+                      <div class="flex space-x-2 items-center">
+                        <div class="custom-checkbox --slim">
+                          <input
+                            type="checkbox"
+                            id="checkboxTableHeader"
+                            data-name="checkboxInput"
+                            class="hidden checkbox-input"
+                          />
+                          <label
+                            for="checkboxTableHeader"
+                            class="checkbox-label"
+                          ></label>
+                        </div>
+                        <span>A상품</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="flex items-center space-x-2">
+                        <input
+                          type="text"
+                          class="stepper-input --small"
+                          aria-valuenow="0"
+                          value="0"
+                          role="spinbutton"
+                          aria-valuemin="0"
+                        />
+                        <span>개</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group flex flex-col space-y-1">
+                        <% let weekNumbers = ["없음", "1주차", "2주차", "3주차", "4주차"]  %>
+                        <% for (let i = 0; i < 5; i++) { %>
+                        <div class="custom-checkbox">
+                          <input
+                            <% if (i === 0) { %>
+                            checked
+                            <% } %>
+                            type="checkbox"
+                            id="checkbox<%= i %>"
+                            name="checkbox<%= i %>"
+                            data-name="checkboxInput"
+                            class="hidden checkbox-input"
+                          />
+                          <label for="checkbox<%= i %>" class="checkbox-label"></label>
+                          <label for="checkbox<%= i %>" class="ml-2"><%= weekNumbers[i] %></label>
+                        </div>
+                        <% } %>
+                        <div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group flex flex-col space-y-1">
+                        <% let parts = ["완제품", "부품"]  %>
+                        <% for (let i = 0; i < 2; i++) { %>
+                        <div class="custom-checkbox">
+                          <input
+                            type="checkbox"
+                            id="checkbox<%= i %>"
+                            name="checkbox<%= i %>"
+                            data-name="checkboxInput"
+                            class="hidden checkbox-input"
+                          />
+                          <label for="checkbox<%= i %>" class="checkbox-label"></label>
+                          <label for="checkbox<%= i %>" class="ml-2"><%= parts[i] %></label>
+                        </div>
+                        <% } %>
+                        <div>
+                      </div>
+                    
+                    
+                    
+                    </td>
+                  </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="card-content-container w-full">
+          <h4 class="card-sub-title mb-3">상세내용</h4>
+          <div
+            class="control-box mb-4 flex p-4 border-1 border-solid border-gray-300 rounded-lg"
+          >
+            <div
+              class="control-box-content w-full grid grid-cols-2 gap-4 max-md:grid-cols-1"
+            >
+              <div class="flex flex-col">
+                <h5 class="box-sub-title mb-3">첨부파일</h5>
+                <div class="button-wrapper mb-4">
+                  <button
+                    class="button --outline --small text-gray-darker"
+                    aria-label="Submit"
+                  >
+                    <i class="icon">
+                      <iconify-icon
+                        icon="material-symbols:add-photo-alternate-outline"
+                      ></iconify-icon>
+                    </i>
+                    <span class="button-text">사진 첨부하기</span>
+                  </button>
+                </div>
+                <div class="attached-image-list flex flex-wrap gap-4">
+                  <% for(let i = 0; i < 5; i++) { %>
+                  <div class="attached-image-item relative">
+                    <button
+                      class="close-button-circle absolute bg-white -right-3 -top-3 border-1 border-solid border-gray-400 p-2 rounded-full inline-flex w-8 h-8 justify-center items-center"
+                    >
+                      <iconify-icon
+                        icon="material-symbols:close"
+                      ></iconify-icon>
+                    </button>
+                    <a
+                      href="/images/logo/ionedu_remonedu_logo.png"
+                      data-lightbox="image-1"
+                      class="flex attached-image w-20 h-20 border-1 border-solid border-gray-300 rounded-lg"
+                    >
+                      <img
+                        class="object-contain"
+                        src="/images/logo/ionedu_remonedu_logo.png"
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                  <% } %>
+                </div>
+              </div>
+              <div class="flex flex-col">
+                <h5 class="box-sub-title mb-3">설명</h5>
+                <div class="text-area">
+                  <label for="message" class="text-area-label hidden"
+                    >Message</label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    class="text-area-field"
+                    placeholder="내용을 입력해 주세요"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-content-container w-full text-right">
+          <button class="button --solid bg-primary-500 --medium-large">
+            신청하기
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

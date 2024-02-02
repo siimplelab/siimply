@@ -1,0 +1,102 @@
+@layer components {
+  // * DATA TABLE
+  .data-table {
+    &.--white {
+      tbody {
+        tr {
+          @apply odd:bg-white;
+        }
+      }
+    }
+
+    &.--simple {
+      table {
+        min-width: 0;
+      }
+    }
+
+    table {
+      @apply w-full border-collapse table;
+      min-width: 50rem;
+    }
+
+    caption {
+      @apply p-4 text-lg font-semibold sr-only;
+    }
+
+    thead {
+      @apply table-header-group;
+
+      tr {
+        @apply bg-transparent;
+      }
+    }
+
+    th {
+      @apply text-left p-4 table-cell text-xs border-t-1 border-solid border-b-1 border-t-gray-500  border-b-gray-300;
+    }
+
+    tbody {
+      @apply table-row-group;
+
+      tr {
+        @apply odd:bg-gray-100;
+
+        &:last-of-type {
+          td {
+            @apply border-b-gray-500;
+          }
+        }
+      }
+
+      td {
+        @apply border-b-1 border-solid border-b-gray-300;
+      }
+    }
+
+    tr {
+      @apply table-row;
+    }
+
+    td {
+      @apply p-4 table-cell;
+    }
+  }
+
+  // * CELL CUSTOM
+  .cell-custom {
+    @apply flex flex-col;
+    .cell-sub-text {
+      @apply text-xs text-gray-600;
+    }
+  }
+
+  // * CONTROL TABLE
+  .control-table {
+    caption {
+      @apply hidden;
+    }
+
+    table {
+      @apply w-full border-collapse table;
+      min-width: 50rem;
+    }
+
+    th {
+      text-align: left;
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 700;
+      color: theme("colors.gray.medium");
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid theme("colors.gray.300");
+    }
+
+    td {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid theme("colors.gray.300");
+      @apply border-b-0;
+    }
+  }
+}

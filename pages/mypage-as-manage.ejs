@@ -1,0 +1,221 @@
+---
+layout: layout-mypage
+pageTitle: Mypage - Main
+---
+
+<div
+  id="contentWrapper"
+  class="px-4 flex flex-wrap lg:flex-nowrap space-x-0 lg:space-x-4 container mx-auto w-full"
+>
+  <%- include("../_includes/aside-content-mypage") %>
+  <div class="content-section flex-grow md:w-auto w-full mt-4 lg:mt-0">
+    <div class="card">
+      <form action="">
+        <div class="card-title flex items-center mb-4">
+          <h3>AS관리</h3>
+        </div>
+        <div class="card-content-container w-full mb-4">
+          <div class="content-filter flex space-x-2 items-center">
+            <label for="" class="custom-label">배송상태</label>
+            <select
+              name="tableFilter"
+              id="tableFilter"
+              class="md:ml-auto ml-0 md:mt-0 mt-2 dropdown-html-select"
+            >
+              <option value="기본">기본</option>
+              <option value="옵션">옵션</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-content-container w-full">
+          <div id="dataFilterToggle" class="md:hidden">
+            <button
+              class="flex items-center button --outline --small space-x-2 mb-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1.5rem"
+                height="1.5rem"
+                viewBox="0 0 24 24"
+              >
+                <path fill="currentColor" d="M7 13h4v4H7zm6 0h4v4h-4z" />
+                <path
+                  fill="currentColor"
+                  d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14z"
+                />
+                <path fill="currentColor" d="M7 7h4v4H7zm6 0h4v4h-4z" />
+              </svg>
+              <span> 데이터 필터 </span>
+            </button>
+          </div>
+          <form
+            id="dataFilter"
+            class="max-md:hidden"
+            action="
+            "
+          >
+            <div
+              class="data-filter-group mb-4 flex flex-wrap space-y-4 items-end p-4 border-1 border-solid border-gray-300 rounded-lg"
+            >
+              <div class="data-filter-items">
+                <div class="data-filter-item">
+                  <div
+                    class="dropdown w-full flex flex-col space-y-2"
+                    data-type="datepicker"
+                  >
+                    <label for="dateStart" class="custom-label"
+                      >시작일</label
+                    >
+                    <input
+                      type="date"
+                      class="dropdown-button --outline"
+                      id="dateStart"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    />
+
+                    <div
+                      id="dropdownContent"
+                      class="dropdown-content --center md:--right"
+                      role="menu"
+                    >
+                      <ul>
+                        <li role="menuitem"><a href="#">Link 1</a></li>
+                        <li role="menuitem"><a href="#">Link 2</a></li>
+                        <li role="menuitem"><a href="#">Link 3</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="data-filter-item">
+                  <div
+                    class="dropdown w-full flex flex-col space-y-2"
+                    data-type="datepicker"
+                  >
+                    <label for="dateEnd" class="custom-label"
+                      >종료일</label
+                    >
+                    <input
+                      type="date"
+                      class="dropdown-button --outline"
+                      id="dateEnd"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    />
+
+                    <div
+                      id="dropdownContent"
+                      class="dropdown-content --center md:--right"
+                      role="menu"
+                    >
+                      <ul>
+                        <li role="menuitem"><a href="#">Link 1</a></li>
+                        <li role="menuitem"><a href="#">Link 2</a></li>
+                        <li role="menuitem"><a href="#">Link 3</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="data-filter-item">
+                  <div class="text-input --outline flex flex-col space-y-2">
+                    <label for="textInput" class="custom-label">검색어</label>
+                    <input
+                      type="text"
+                      id="textInput"
+                      name="textInput"
+                      class="custom-text-input"
+                      placeholder="검색어를 입력해 주세요"
+                    />
+                    <div class="menu-auto-complete" role="menu">
+                      <ul>
+                        <li role="menuitem"><a href="#">Link 1</a></li>
+                        <li role="menuitem"><a href="#">Link 2</a></li>
+                        <li role="menuitem"><a href="#">Link 3</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="data-filter-submit ml-auto">
+                <button
+                  class="button --solid --medium border-primary-500 bg-primary-500"
+                  aria-label="Submit"
+                >
+                  <span class="button-text">검색하기</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-content-container overflow-x-auto w-full">
+          <div class="data-table text-xs mb-2">
+            <table>
+              <caption>
+                데이터테이블
+              </caption>
+              <thead>
+                <tr>
+                  <th>교환번호</th>
+                  <th>교환상태</th>
+                  <th>운송장번호</th>
+                  <th>주문번호</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% dummyTableData.forEach(function(person, i) { %>
+                <tr>
+                  <td>202332222-1</td>
+                  <td>교환</td>
+                  <td><a href="" class="button --text">000000000</a></td>
+                  <td>0000000</td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-content-container">
+          <nav class="pagination flex items-center justify-center space-x-3 py-5" aria-label="Page navigation">
+            <button data-name="pagination-prev-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1rem"
+                height="1rem"
+                viewBox="0 0 16 17"
+                fill="none"
+              >
+                <path
+                  d="M10.6667 15.1667L4 8.50004L10.6667 1.83337L11.85 3.01671L6.36667 8.50004L11.85 13.9834L10.6667 15.1667Z"
+                  fill="#555555"
+                />
+              </svg>
+            </button>
+            <ul class="pagination-pages">
+              <% for (let i = 1; i < 10; i++) { %>
+              <li>
+                <a href="?page=1" class="page-link" aria-label="Go to page 1"
+                  ><%= i %></a
+                >
+              </li>
+              <% } %>
+            </ul>
+            <button data-name="pagination-next-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1rem"
+                height="1rem"
+                viewBox="0 0 16 17"
+                fill="none"
+              >
+                <path
+                  d="M5.34935 15.1667L4.16602 13.9834L9.64935 8.50004L4.16602 3.01671L5.34935 1.83337L12.016 8.50004L5.34935 15.1667Z"
+                  fill="#555555"
+                />
+              </svg>
+            </button>
+          </nav>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

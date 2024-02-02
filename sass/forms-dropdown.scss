@@ -1,0 +1,129 @@
+@layer components {
+  // * DROPDOWN HTML SELECT
+  .dropdown-html-select {
+    @apply border-1 border-gray-400 border-solid text-sm rounded-s rounded-e;
+    padding: 0.5rem 0.75rem;
+    min-width: 11.25rem;
+  }
+
+  // * DROPDOWN SELECT
+  .dropdown-select {
+    @apply relative;
+
+    .dropdown-select-button {
+      @apply inline-flex items-center py-2 px-2 text-sm text-gray-darker bg-gray-300 rounded-s rounded-e;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid currentColor;
+        pointer-events: none;
+        @apply ml-4;
+      }
+    }
+
+    &.--outline {
+      .dropdown-select-button {
+        @apply border-1 border-gray-400 bg-white border-solid text-sm rounded-s rounded-e;
+        padding: 0.5rem 0.75rem;
+        min-width: 11.25rem;
+
+        &::after {
+          @apply ml-auto;
+        }
+      }
+    }
+
+    .dropdown-select-menu {
+      @apply absolute mt-1 bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none;
+      z-index: 1000; // Ensure dropdown appears above other content
+      font-size: 0.8125rem;
+
+      li {
+        @apply text-gray-900 cursor-pointer select-none relative py-2 pl-3 pr-9;
+        &:hover,
+        &[aria-selected="true"] {
+          @apply bg-primary-500 text-white;
+        }
+      }
+    }
+
+    &.--small {
+      .dropdown-select-menu {
+        font-size: 0.8125rem;
+      }
+    }
+  }
+
+  // * DROPDOWN
+  .dropdown {
+    position: relative;
+    display: inline-flex;
+
+    &.--small {
+      .dropdown-button {
+        font-size: 0.8125rem;
+        padding: 0.25rem 0.5rem;
+        min-width: 11.25rem;
+      }
+    }
+
+    &-button {
+      @apply inline-flex items-center py-2 px-2 text-sm text-gray-darker bg-gray-300 rounded-s rounded-e;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid currentColor;
+        pointer-events: none;
+        @apply ml-4;
+      }
+
+      &.--outline {
+        @apply border-1 border-gray-400 bg-white border-solid text-sm rounded-s rounded-e;
+        padding: 0.5rem 0.75rem;
+        min-width: 11.25rem;
+
+        &::after {
+          @apply ml-auto;
+        }
+      }
+    }
+
+    &-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: min-content;
+      width: 100%;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      top: 100%;
+      @apply text-sm;
+
+      &.--right {
+        right: 0;
+        left: auto;
+      }
+
+      a {
+        color: black;
+        padding: 0.5rem 0.75rem;
+        text-decoration: none;
+        display: block;
+
+        &:hover {
+          background-color: #f1f1f1;
+        }
+      }
+    }
+  }
+}

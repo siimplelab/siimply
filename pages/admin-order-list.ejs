@@ -1,0 +1,435 @@
+---
+layout: layout-content
+pageTitle: 관리자 - 주문 내역
+---
+
+<!-- 관리자 모드 -->
+<%- include('../_includes/modifier-admin-mode.ejs') %>
+
+<div
+  id="contentWrapper"
+  class="px-4 flex flex-wrap lg:flex-nowrap space-x-0 lg:space-x-4 container mx-auto w-full"
+>
+  <div class="content-section flex-grow md:w-auto w-full mt-4 lg:mt-0">
+    <div class="card py-8">
+      <div class="card-title flex items-center mb-4">
+        <h3>주문 내역</h3>
+      </div>
+      <!-- 데이터 필터 -->
+      <div class="card-content-container w-full">
+        <div id="dataFilterToggle" class="md:hidden">
+          <button
+            class="flex items-center button --outline --small space-x-2 mb-4"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1.5rem"
+              height="1.5rem"
+              viewBox="0 0 24 24"
+            >
+              <path fill="currentColor" d="M7 13h4v4H7zm6 0h4v4h-4z" />
+              <path
+                fill="currentColor"
+                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14z"
+              />
+              <path fill="currentColor" d="M7 7h4v4H7zm6 0h4v4h-4z" />
+            </svg>
+            <span> 데이터 필터 </span>
+          </button>
+        </div>
+        <form
+          id="dataFilter"
+          class="max-md:hidden"
+          action="
+          "
+        >
+          <div
+            class="data-filter-group mb-4 flex flex-wrap space-y-4 items-end p-4 border-1 border-solid border-gray-300 rounded-lg"
+          >
+            <div class="data-filter-items basis-full">
+              <div class="data-filter-item">
+                <div
+                  class="dropdown w-full flex flex-col space-y-2"
+                  data-type="datepicker"
+                >
+                  <label for="dateStart" class="custom-label"
+                    >시작일</label
+                  >
+                  <input
+                    type="date"
+                    class="dropdown-button --outline"
+                    id="dateStart"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  />
+
+                  <div
+                    id="dropdownContent"
+                    class="dropdown-content --center md:--right"
+                    role="menu"
+                  >
+                    <ul>
+                      <li role="menuitem"><a href="#">Link 1</a></li>
+                      <li role="menuitem"><a href="#">Link 2</a></li>
+                      <li role="menuitem"><a href="#">Link 3</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="data-filter-item">
+                <div
+                  class="dropdown w-full flex flex-col space-y-2"
+                  data-type="datepicker"
+                >
+                  <label for="dateEnd" class="custom-label">종료일</label>
+                  <input
+                    type="date"
+                    class="dropdown-button --outline"
+                    id="dateEnd"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  />
+
+                  <div
+                    id="dropdownContent"
+                    class="dropdown-content --center md:--right"
+                    role="menu"
+                  >
+                    <ul>
+                      <li role="menuitem"><a href="#">Link 1</a></li>
+                      <li role="menuitem"><a href="#">Link 2</a></li>
+                      <li role="menuitem"><a href="#">Link 3</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="data-filter-items">
+              <div class="data-filter-item flex flex-col space-y-2">
+                <label for="dropdownButton" class="custom-label"
+                  >배송상태</label
+                >
+                <div class="dropdown-select --outline" data-dropdown>
+                  <input
+                    type="hidden"
+                    name="selectedValue"
+                    data-dropdown-value
+                    id="dropdownButton"
+                  />
+                  <button
+                    type="button"
+                    class="dropdown-select-button"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    data-dropdown-toggle
+                  >
+                    전체
+                  </button>
+                  <ul
+                    class="dropdown-select-menu hidden"
+                    role="listbox"
+                    data-dropdown-menu
+                  >
+                    <li role="option" data-dropdown-option value="1">
+                      Option 1
+                    </li>
+                    <li role="option" data-dropdown-option value="2">
+                      Option 2
+                    </li>
+                    <li role="option" data-dropdown-option value="3">
+                      Option 3
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="data-filter-item flex flex-col space-y-2">
+                <label for="dropdownButton" class="custom-label"
+                  >원배송처</label
+                >
+                <div class="dropdown-select --outline" data-dropdown>
+                  <input
+                    type="hidden"
+                    name="selectedValue"
+                    data-dropdown-value
+                  />
+                  <button
+                    type="button"
+                    class="dropdown-select-button"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    data-dropdown-toggle
+                  >
+                    전체
+                  </button>
+                  <ul
+                    class="dropdown-select-menu hidden"
+                    role="listbox"
+                    data-dropdown-menu
+                  >
+                    <li role="option" data-dropdown-option value="1">
+                      Option 1
+                    </li>
+                    <li role="option" data-dropdown-option value="2">
+                      Option 2
+                    </li>
+                    <li role="option" data-dropdown-option value="3">
+                      Option 3
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="data-filter-item">
+                <div class="text-input --outline flex flex-col space-y-2">
+                  <label for="textInput" class="custom-label">검색어</label>
+                  <input
+                    type="text"
+                    id="textInput"
+                    name="textInput"
+                    class="custom-text-input"
+                    placeholder="검색어를 입력해 주세요"
+                  />
+                  <div class="menu-auto-complete" role="menu">
+                    <ul>
+                      <li role="menuitem"><a href="#">Link 1</a></li>
+                      <li role="menuitem"><a href="#">Link 2</a></li>
+                      <li role="menuitem"><a href="#">Link 3</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="data-filter-submit ml-auto">
+              <button
+                class="button --solid --medium border-primary-500 bg-primary-500"
+                aria-label="Submit"
+              >
+                <span class="button-text">검색하기</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- 회사별 상태 -->
+      <div class="content-box mb-8 py-8">
+        <div
+          class="text-smxs flex items-start md:items-center md:flex-row flex-col"
+        >
+          <div class="status-item">
+            <div class="text-group">
+              <span>총 29개 지사</span>
+              <span>총 19개 상품 카테고리</span>
+            </div>
+            <div class="status-content">
+              <div class="amount-status">
+                <div class="amount-status-item">
+                  <span class="amount-status-item-tag bg-primary-500">아</span>
+                  <span class="amount-status-item-title">아이온에듀</span>
+                </div>
+                <div class="amount-status-item">
+                  <span class="amount-status-item-tag bg-secondary-500"
+                    >레</span
+                  >
+                  <span class="amount-status-item-title">아이온에듀</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-content-container overflow-x-auto w-full">
+        <div class="data-table text-xs mb-2">
+          <table>
+            <caption>
+              데이터테이블
+            </caption>
+            <thead>
+              <tr>
+                <th>주문총금액</th>
+                <th>주문번호</th>
+                <th>주문상품</th>
+                <th>배송비</th>
+                <th>원배송처</th>
+                <th>추가배송비</th>
+                <th>운송장번호</th>
+                <th>주문상태</th>
+                <th>외상거래사용액</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% dummyTableData.forEach(function(person, i) { %>
+              <tr>
+                <td>
+                  <div class="cell-custom space-y-1">
+                    <div
+                      class="cell-custom-item inline-flex items-center space-x-2 text-xs"
+                    >
+                      <span class="amount-status-item-tag bg-primary-500"
+                        >아</span
+                      >
+                      <span>0,000,0000원</span>
+                    </div>
+                    <div
+                      class="cell-custom-item inline-flex items-center space-x-2 text-xs"
+                    >
+                      <span class="amount-status-item-tag bg-secondary-500"
+                        >레</span
+                      >
+                      <span>0,000,0000원</span>
+                    </div>
+                  </div>
+                </td>
+                <td>주문번호</td>
+                <td>주문상품</td>
+                <td>
+                  배송비
+                  <button class="--xsmall --outline button" type="button">
+                    보기
+                  </button>
+                </td>
+                <td>
+                  <div class="cell-custom space-y-1">
+                    <span class="cell-sub-text"> <%= person.name %> </span>
+                    <span>Some Text</span>
+                  </div>
+                </td>
+                <td><%= person.salary %></td>
+                <td>
+                  <a href="" class="button --text">000000000</a>
+                </td>
+                <td>주문상태</td>
+                <td>
+                  <div class="cell-custom space-y-1">
+                    <div
+                      class="cell-custom-item inline-flex items-center space-x-2 text-xs"
+                    >
+                      <span class="amount-status-item-tag bg-primary-500"
+                        >아</span
+                      >
+                      <span>0,000,0000원</span>
+                    </div>
+                    <div
+                      class="cell-custom-item inline-flex items-center space-x-2 text-xs"
+                    >
+                      <span class="amount-status-item-tag bg-secondary-500"
+                        >레</span
+                      >
+                      <span>0,000,0000원</span>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-content-container">
+        <nav
+          class="pagination flex items-center justify-center space-x-3 py-5"
+          aria-label="Page navigation"
+        >
+          <button data-name="pagination-prev-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1rem"
+              height="1rem"
+              viewBox="0 0 16 17"
+              fill="none"
+            >
+              <path
+                d="M10.6667 15.1667L4 8.50004L10.6667 1.83337L11.85 3.01671L6.36667 8.50004L11.85 13.9834L10.6667 15.1667Z"
+                fill="#555555"
+              />
+            </svg>
+          </button>
+          <ul class="pagination-pages">
+            <% for (let i = 1; i < 10; i++) { %>
+            <li>
+              <a href="?page=1" class="page-link" aria-label="Go to page 1"
+                ><%= i %></a
+              >
+            </li>
+            <% } %>
+          </ul>
+          <button data-name="pagination-next-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1rem"
+              height="1rem"
+              viewBox="0 0 16 17"
+              fill="none"
+            >
+              <path
+                d="M5.34935 15.1667L4.16602 13.9834L9.64935 8.50004L4.16602 3.01671L5.34935 1.83337L12.016 8.50004L5.34935 15.1667Z"
+                fill="#555555"
+              />
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myModal" class="modal hidden --sm" data-modal>
+  <div
+    class="modal-content"
+    role="dialog"
+    aria-labelledby="modalTitle"
+    aria-describedby="modalDescription"
+  >
+    <div class="modal-content-body mb-8">
+      <div class="text-item flex flex-col text-sm text-gray-darker">
+        <span>아이온 예치금추가창입니다. </span>
+        <span>신중하게 진행해 주세요.</span>
+      </div>
+      <div class="form-group mt-4 flex flex-col space-y-2">
+        <div class="text-input --small --outline flex flex-col space-y-2">
+          <label for="textInput" class="custom-label">금액</label>
+          <input
+            type="text"
+            id="textInput"
+            name="textInput"
+            class="custom-text-input"
+            placeholder=""
+          />
+        </div>
+        <div
+          class="dropdown relative w-full --small flex flex-col space-y-2"
+          data-type="datepicker"
+        >
+          <label for="dateStart" class="custom-label">날짜</label>
+          <input
+            type="date"
+            class="dropdown-button --outline"
+            id="dateStart"
+            aria-haspopup="true"
+            aria-expanded="false"
+          />
+
+          <div
+            id="dropdownContent"
+            class="dropdown-content --center md:--right"
+            role="menu"
+          >
+            <ul>
+              <li role="menuitem"><a href="#">Link 1</a></li>
+              <li role="menuitem"><a href="#">Link 2</a></li>
+              <li role="menuitem"><a href="#">Link 3</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button-group flex items-center justify-end space-x-2">
+      <button class="button --small bg-gray-300 rounded close" data-close-modal>
+        닫기
+      </button>
+      <button class="button --small text-white bg-primary-500 rounded">
+        추가하기
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,156 @@
+// * FONTS
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css");
+
+// * ICONS
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+// * TAILWIND
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// * BASE
+html {
+  font-size: 16px;
+
+  @media (max-width: 1279px) {
+    font-size: 13px;
+  }
+}
+
+body {
+  @apply bg-gray-100 text-black;
+}
+
+#main {
+  min-width: 320px;
+
+  .admin-mode & {
+    min-width: 1140px;
+  }
+}
+
+#mainContent {
+  @apply w-full;
+  min-height: 45rem; // 760px
+
+  @media (max-width: 1279px) {
+    min-height: 35rem; // 560px
+  }
+}
+
+#contentWrapper {
+  .admin-mode & {
+    width: 100% !important;
+    max-width: 1140px !important;
+    margin: 0 auto;
+  }
+}
+
+// * MODULES
+@import "icons.scss";
+@import "buttons.scss";
+@import "buttons-tab.scss";
+@import "forms.scss";
+@import "forms-text-input.scss";
+@import "forms-dropdown.scss";
+@import "forms-checkbox.scss";
+@import "forms-radio.scss";
+@import "data-table.scss";
+@import "modal.scss";
+@import "header.scss";
+
+@layer components {
+  // * CARD
+  .card {
+    @apply px-8 py-4 bg-white rounded-2xl max-md:px-4;
+
+    &-title {
+      @apply text-lg font-bold;
+    }
+
+    &-sub-title {
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 700;
+    }
+  }
+
+  // * BADGE
+  .badge {
+    @apply bg-primary-200 inline-flex justify-center items-center text-gray-800 px-2 py-1 rounded-md;
+  }
+
+  // * ACCORDION
+  .accordion-content {
+    max-height: none;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  // * CONTROL BOX
+  .control-box {
+    td {
+      @apply text-gray-darker;
+    }
+  }
+  .box-sub-title {
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 700;
+    @apply text-gray-medium;
+  }
+
+  // * CUSTOM DIVIDER
+  .custom-divider {
+    border: 0; /* Removes default border */
+    height: 1px; /* Sets the height of the divider */
+    background-color: theme("colors.gray.500");
+    margin: 20px 0; /* Adds vertical spacing around the divider */
+  }
+
+  // * ITEM DETAIL (상세정보)
+  .item-detail {
+    max-width: 44rem;
+    @apply mx-auto;
+
+    &__head {
+      @apply flex justify-start items-center;
+    }
+
+    &__title {
+      @apply text-2xl font-bold pr-11 flex justify-center flex-grow;
+    }
+
+    &__headline {
+      font-size: 1.375rem;
+      @apply font-bold;
+    }
+
+    &__data-group {
+      @apply flex flex-col space-y-8;
+    }
+
+    &__data {
+      @apply flex flex-col space-y-2;
+      dt {
+        font-size: 1.125rem;
+        font-weight: bold;
+      }
+
+      dd {
+        font-size: 1rem;
+      }
+    }
+  }
+  // * CONTENT BOX
+  .content-box {
+    @apply p-4 w-full border-1 border-solid border-gray-300 rounded-lg;
+  }
+
+  // * ALERT
+  .alert {
+    @apply bg-orange-200 font-semibold rounded-lg py-3 px-5;
+    color: #D65A00;
+  }
+}

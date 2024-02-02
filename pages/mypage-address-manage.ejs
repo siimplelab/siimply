@@ -1,0 +1,364 @@
+---
+layout: layout-mypage
+pageTitle: 마이페이지 - 배송지관리
+---
+
+<div
+  id="contentWrapper"
+  class="px-4 flex flex-wrap lg:flex-nowrap space-x-0 lg:space-x-4 container mx-auto w-full"
+>
+  <%- include("../_includes/aside-content-mypage") %>
+  <div class="content-section flex-grow md:w-auto w-full mt-4 lg:mt-0">
+    <div class="card py-8">
+      <div class="card-title flex items-center mb-4">
+        <h3>배송지 관리</h3>
+      </div>
+      <div class="card-content-container w-full max-w-full">
+        <div class="tabs">
+          <div
+            class="tab-list"
+            role="tablist"
+            aria-label="Sample Tabs"
+            data-tabs
+          >
+            <a
+              href="#tab1"
+              class="tab-link"
+              aria-selected="true"
+              role="tab"
+              data-tab-target="tab1"
+              >배송지목록</a
+            >
+            <a href="#tab2" class="tab-link" role="tab" data-tab-target="tab2"
+              >신규배송지</a
+            >
+            <a href="#tab3" class="tab-link" role="tab" data-tab-target="tab3"
+              >배송지업로드</a
+            >
+            <!-- More tabs here -->
+          </div>
+          <!-- * 탭1 -->
+          <div
+            id="tab1"
+            class="tab-panel"
+            role="tabpanel"
+            tabindex="0"
+            data-tab-content="tab1"
+          >
+            <ul class="data-list grid grid-cols-2 max-md:grid-cols-1">
+              <% for (let i = 0; i < 4; i++) { %>
+              <li
+                class="data-list-item py-6 border-b border-gray-300"
+              >
+                <div class="data-item-content space-y-2">
+                  <div class="text-lg font-bold text-gray-darker">
+                    <div class="custom-checkbox">
+                      <input
+                        type="checkbox"
+                        id="checkbox1"
+                        data-name="checkboxInput"
+                        class="hidden checkbox-input"
+                      />
+                      <label for="checkbox1" class="checkbox-label"></label>
+                      <label for="checkbox1" class="ml-2">
+                        레온어린이집3
+                      </label>
+                    </div>
+                  </div>
+                  <div class="flex space-x-2">
+                    <span>010-3333-3333</span>
+                  </div>
+                  <div>(11111) 경기도 평택시 오성면 서동대로 2061-22</div>
+                </div>
+                <div class="button-group space-x-2 mt-4 flex items-center">
+                  <% if (i === 0) { %>
+                  <span class="font-bold text-primary-500">기본 배송지</span>
+                  <% } %>
+                  <button
+                    class="flex items-center button --outline --small space-x-2"
+                  >
+                    <span>편집</span>
+                  </button>
+                  <button
+                    class="flex items-center button --outline --small space-x-2"
+                  >
+                    <span>삭제</span>
+                  </button>
+                  <button
+                    class="flex items-center button --outline --small space-x-2"
+                  >
+                    <span>기본 배송지 설정</span>
+                  </button>
+                </div>
+              </li>
+              <% } %>
+            </ul>
+          </div>
+          <!-- * 탭2 -->
+          <div
+            id="tab2"
+            class="tab-panel"
+            role="tabpanel"
+            tabindex="0"
+            hidden
+            data-tab-content="tab2"
+          >
+            <form action="">
+              <div class="form-group space-y-4 container max-w-xl mx-auto">
+                <div class="form-group-input">
+                  <div class="text-input --outline flex flex-col space-y-2">
+                    <label for="textInput" class="custom-label">이름</label>
+                    <input
+                      type="text"
+                      id="textInput"
+                      name="textInput"
+                      class="custom-text-input"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="form-group-input flex flex-col space-y-2">
+                  <label for="textInput" class="custom-label">주소</label>
+                  <div
+                    class="form-group-input-item flex space-x-2 items-center"
+                  >
+                    <div
+                      class="text-input flex-grow --outline flex flex-col space-y-2"
+                    >
+                      <input
+                        type="text"
+                        id="textInput"
+                        name="textInput"
+                        class="custom-text-input"
+                        placeholder="우편번호"
+                      />
+                    </div>
+                    <button
+                      class="flex items-center button --outline --small space-x-2"
+                    >
+                      <span>주소검색</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="form-group-input flex">
+                  <div
+                    class="text-input --outline flex flex-col flex-grow space-y-2"
+                  >
+                    <label for="textInput" class="custom-label">기본주소</label>
+                    <input
+                      type="text"
+                      id="textInput"
+                      name="textInput"
+                      class="custom-text-input"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="form-group-input flex">
+                  <div
+                    class="text-input --outline flex flex-col flex-grow space-y-2"
+                  >
+                    <label for="textInput" class="custom-label">상세주소</label>
+                    <input
+                      type="text"
+                      id="textInput"
+                      name="textInput"
+                      class="custom-text-input"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="form-group-input flex space-x-4">
+                  <div
+                    class="text-input --outline flex flex-col flex-grow space-y-2"
+                  >
+                    <label for="textInput" class="custom-label"
+                      >이메일 (선택)</label
+                    >
+                    <input
+                      type="text"
+                      id="textInput"
+                      name="textInput"
+                      class="custom-text-input"
+                      placeholder=""
+                    />
+                  </div>
+                  <div
+                    class="text-input --outline flex flex-col flex-grow space-y-2"
+                  >
+                    <label for="textInput" class="custom-label">전화번호</label>
+                    <input
+                      type="text"
+                      id="textInput"
+                      name="textInput"
+                      class="custom-text-input"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <hr class="divider my-8" />
+              <div class="form-group-submit flex justify-end">
+                <button
+                  class="button --solid --medium-large border-primary-500 bg-primary-500"
+                  aria-label="Submit"
+                >
+                  <span class="button-text">신청하기</span>
+                </button>
+              </div>
+            </form>
+          </div>
+          <!-- * 탭3 -->
+          <div
+            id="tab3"
+            class="tab-panel"
+            role="tabpanel"
+            tabindex="0"
+            hidden
+            data-tab-content="tab3"
+          >
+            <form action="">
+              <div class="content-box">
+                <div class="form-group space-y-4 container max-w-xl mx-auto">
+                  <div class="form-group-input flex flex-col space-y-2">
+                    <label for="textInput" class="custom-label"
+                      >파일 선택</label
+                    >
+                    <div
+                      class="form-group-input-item flex space-x-2 items-center"
+                    >
+                      <div
+                        class="text-input flex-grow --outline flex flex-col space-y-2"
+                      >
+                        <input
+                          type="file"
+                          id="fileInput"
+                          name="fileInput"
+                          class="custom-text-input"
+                          placeholder=""
+                        />
+                      </div>
+                      <button
+                        class="flex items-center button --outline --small space-x-2"
+                      >
+                        <span>업로드</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="text-group flex flex-col space-y-2">
+                    <label for="textInput" class="custom-label"
+                      >배송지 업로드 방법 안내</label
+                    >
+                    <ul class="content-group flex flex-col space-y-4">
+                      <li>
+                        <div
+                          class="content-group flex flex-col items-start space-y-2"
+                        >
+                          <span
+                            >1. ‘배송지등록예시 csv파일’을 다운받습니다.</span
+                          >
+                          <button class="ml-4 button --small --outline">
+                            배송지등록예시 csv파일 다운로드하기
+                          </button>
+                        </div>
+                      </li>
+                      <li>
+                        <div
+                          class="content-group flex flex-col items-start space-y-2"
+                        >
+                          <span
+                            >2. 다운로드한 zip파일을 압축해제 후 csv파일을
+                            엑셀에서 오픈합니다.
+                          </span>
+                        </div>
+                      </li>
+                      <li>
+                        <div
+                          class="content-group flex flex-col items-start space-y-2"
+                        >
+                          <span>3. 행에 맞게 내용을 넣습니다.</span>
+                          <div
+                            class="text-group ml-4 flex flex-col space-y-1 text-gray-medium text-sm"
+                          >
+                            <span
+                              >billing_frst_name: 유치원명 또는 받는분
+                              성명</span
+                            >
+                            <span>billing_last_name: 공란</span>
+                            <span>billing_postcode: 우편번호</span>
+                            <span>billing_address_1: 주소</span>
+                            <span>billing_address_2: 상세주소</span>
+                            <span>billing_email: 이메일</span>
+                            <span>billing_phone: 핸드폰번호</span>
+                            <span>1열은 유지해 주세요.</span>
+                            <span
+                              >초기 입력시에는 2열은 기본주소가 됩니다.</span
+                            >
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div
+                          class="content-group flex flex-col items-start space-y-2"
+                        >
+                          <span
+                            >4. csv utf-8(쉼표로 분류)로 저장후 상단에
+                            파일선택후 업로드 버튼을 클릭합니다.</span
+                          >
+                        </div>
+                      </li>
+                      <li>
+                        <div
+                          class="content-group flex flex-col items-start space-y-2"
+                        >
+                          <span>5. 배송지 목록을 확인합니다.</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <ul class="data-list mt-8 grid grid-cols-2 max-md:grid-cols-1">
+                <% for (let i = 0; i < 2; i++) { %>
+                <li
+                  class="data-list-item py-6 border-b border-gray-300"
+                >
+                  <div class="data-item-content space-y-2">
+                    <div class="text-lg font-bold text-gray-darker">
+                      레온어린이집3
+                    </div>
+                    <div class="flex space-x-2">
+                      <span>010-3333-3333</span>
+                    </div>
+                    <div>(11111) 경기도 평택시 오성면 서동대로 2061-22</div>
+                  </div>
+                  <div class="button-group space-x-2 mt-4 flex items-center">
+                    <button
+                      class="flex items-center button --outline --small space-x-2"
+                    >
+                      <span>편집</span>
+                    </button>
+                    <button
+                      class="flex items-center button --outline --small space-x-2"
+                    >
+                      <span>삭제</span>
+                    </button>
+                  </div>
+                </li>
+                <% } %>
+              </ul>
+              <div class="action-group flex justify-end mt-8">
+                <button
+                  class="button --solid --medium-large border-primary-500 bg-primary-500"
+                  aria-label="Submit"
+                >
+                  <span class="button-text">저장하기</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+---
+layout: layout-content
+pageTitle: 관리자 - 교환 상세보기
+---
+
+<!-- 관리자 모드 -->
+<%- include('../_includes/modifier-admin-mode.ejs') %>
+
+<div
+  id="contentWrapper"
+  class="px-4 flex flex-wrap lg:flex-nowrap space-x-0 lg:space-x-4 container mx-auto w-full"
+>
+  <div class="content-section flex-grow w-full mt-4 lg:mt-0">
+    <div class="card py-8">
+      <div class="card-content-container w-full">
+        <div class="item-detail max-w-full">
+          <div class="item-detail__head mb-8">
+            <div class="item-detail__back-btn">
+              <button
+                type="button"
+                aria-label="뒤로 가기"
+                data-name="backButton"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="2.25rem"
+                  height="2.25rem"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                >
+                  <path
+                    d="M11.7375 19.5L20.1375 27.9L18 30L6 18L18 6L20.1375 8.1L11.7375 16.5H30V19.5H11.7375Z"
+                    fill="#1C1C1F"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="item-detail__title ml-8 justify-start">
+              <h2>교환 상세보기</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form action="">
+        <div class="card-title flex items-center mb-4">
+          <h3>AS신청</h3>
+        </div>
+        <div class="card-content-container w-full mb-8">
+          <div
+            class="control-box mb-4 p-4 overflow-x-auto w-full border-1 border-solid border-gray-300 rounded-lg"
+          >
+            <div class="control-table mb-2">
+              <table>
+                <caption>
+                  컨트롤 테이블
+                </caption>
+                <thead>
+                  <tr>
+                    <th>상품</th>
+                    <th>반품 내용</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% dummyTableData.forEach(function(person, i) { %>
+                  <tr>
+                    <td>A상품</td>
+                    <td>반품 내용</td>
+                  </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="card-content-container w-full mb-8">
+          <div
+            class="control-box mb-4 p-4 overflow-x-auto w-full border-1 border-solid border-gray-300 rounded-lg"
+          >
+            <div class="control-table mb-2">
+              <table>
+                <caption>
+                  컨트롤 테이블
+                </caption>
+                <thead>
+                  <tr>
+                    <th>승인 거절 보류</th>
+                    <th>송장번호</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% dummyTableData.forEach(function(person, i) { %>
+                  <tr>
+                    <td>승인 거절 보류</td>
+                    <td>0000000000000000</td>
+                  </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

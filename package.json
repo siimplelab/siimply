@@ -1,0 +1,43 @@
+{
+  "name": "siimply",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "watch:js": "babel src/js --out-dir dist/js --watch",
+    "watch:sass": "node sass.watch.js",
+    "watch:css": "postcss src/css/main.css -o dist/css/main.css --watch",
+    "build:js": "babel src/js --out-dir dist/js",
+    "build:sass": "node sass.build.js",
+    "build:css": "postcss src/css/main.css -o dist/css/main.css",
+    "build:css:one-line": "postcss src/css/main.css -o dist/css/main.css && node css.build.js",
+    "eleventy-serve": "eleventy --serve",
+    "browser-sync-start": "browser-sync start --proxy 'localhost:8080' --files 'dist/js/*.js, dist/css/*.css, **/*.html'",
+    "browser-sync-start-with-php": "browser-sync start --proxy 'localhost:4444' --files 'dist/js/*.js, dist/css/*.css, **/*.html, shop/**/*.php'",
+    "serve": "NODE_ENV=development npm-run-all -p eleventy-serve browser-sync-start watch:js watch:sass watch:css",
+    "serve-with-php": "NODE_ENV=development npm-run-all -p browser-sync-start-with-php watch:js watch:sass watch:css watch:js",
+    "build": "npm run clean && npm run build:sass && npm run build:css && npm run build:js && eleventy",
+    "build:one-line-css": "npm run clean && npm run build:sass && npm run build:css:one-line && npm run build:js && eleventy"
+  },
+  "keywords": ["UI Library"],
+  "author": "siimplelab",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "alpinejs": "^3.13.2",
+    "autoprefixer": "^10.4.16",
+    "browser-sync": "^2.29.3",
+    "chokidar": "^3.5.3",
+    "cssnano": "^6.0.1",
+    "ejs": "^3.1.9",
+    "eleventy-sass": "^2.2.3",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^10.1.0",
+    "postcss-scss": "^4.0.9",
+    "rimraf": "^5.0.5",
+    "tailwindcss": "^3.3.5"
+  }
+}

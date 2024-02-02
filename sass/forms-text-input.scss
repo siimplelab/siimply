@@ -1,0 +1,47 @@
+.menu-auto-complete {
+  z-index: 100;
+}
+
+.text-input {
+  @apply inline-flex relative;
+
+  &.flex {
+    display: flex;
+  }
+
+  input {
+    min-width: 11.25rem;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+
+    &.--short {
+        min-width: 0;
+        max-width: 3rem;
+    }
+  }
+
+  &.--short {
+    input {
+      min-width: 0;
+      max-width: 3rem;
+    }
+  }
+
+  &.--small {
+    input {
+      padding: 0.25rem 0.5rem;
+    }
+  }
+
+  &.--outline {
+    input {
+      @apply border-1 border-gray-400 border-solid text-sm rounded-s rounded-e;
+    }
+  }
+}
+
+.text-area {
+  &-field {
+    @apply block w-full px-3 py-2 border-1 border-solid border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
+  }
+}

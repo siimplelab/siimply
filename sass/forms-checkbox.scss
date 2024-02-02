@@ -1,0 +1,51 @@
+@layer components {
+  // * CHECKBOX
+  .custom-checkbox {
+    @apply inline-flex justify-start items-center;
+
+    input[type="checkbox"] {
+      &:disabled {
+        @apply cursor-not-allowed;
+
+        + .checkbox-label {
+          @apply border-gray-300;
+        }
+
+        ~ label {
+          @apply text-gray-400;
+        }
+      }
+    }
+
+    &.--slim {
+      .checkbox-label {
+        @apply border-1 rounded;
+      }
+    }
+  }
+
+  .checkbox-label {
+    width: 1.125rem;
+    height: 1.125rem;
+    @apply inline-block border-2 rounded-sm border-gray-400 rounded-sm cursor-pointer align-middle flex-shrink-0;
+    background-color: white;
+
+    &:after {
+      @apply block w-full h-full text-white;
+      content: "";
+      transform: scale(0);
+      transition: transform 0.1s ease-in-out;
+      background: url("/images/icon-check/checkbox-icon--white.svg") no-repeat
+        center;
+      background-size: contain;
+    }
+
+    .checkbox-input:checked + & {
+      @apply bg-primary-500 border-primary-500;
+
+      &:after {
+        transform: scale(1);
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+---
+layout: layout-mypage
+pageTitle: 마이페이지 - 상세정보 페이지 (운송장번호 등)
+---
+
+<div
+  id="contentWrapper"
+  class="px-4 flex flex-wrap lg:flex-nowrap space-x-0 lg:space-x-4 container mx-auto w-full"
+>
+  <%- include("../_includes/aside-content-mypage") %>
+  <div class="content-section flex-grow md:w-auto w-full mt-4 lg:mt-0">
+    <div class="card py-8">
+      <div class="card-content-container w-full">
+        <div class="item-detail">
+          <div class="item-detail__head">
+            <div class="item-detail__back-btn">
+              <button type="button" aria-label="뒤로 가기" data-name="backButton">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="2.25rem"
+                  height="2.25rem"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                >
+                  <path
+                    d="M11.7375 19.5L20.1375 27.9L18 30L6 18L18 6L20.1375 8.1L11.7375 16.5H30V19.5H11.7375Z"
+                    fill="#1C1C1F"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="item-detail__title">
+              <h2>0000000000</h2>
+            </div>
+          </div>
+          <div class="item-detail__body">
+            <h3 class="item-detail__headline mt-16">상세정보</h3>
+            <hr class="custom-divider" />
+            <ul class="item-detail__data-group mt-12">
+              <% for (let i = 0; i < 5; i++) { %>
+              <li class="item-detail__data">
+                <dt>교환번호</dt>
+                <dd>20002002-1</dd>
+              </li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

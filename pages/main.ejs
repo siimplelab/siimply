@@ -1,0 +1,146 @@
+---
+layout: layout-main
+pageTitle: 메인페이지
+---
+
+<div
+  id="contentWrapper"
+  class="px-4 flex flex-wrap lg:flex-nowrap space-x-0 lg:space-x-4 container mx-auto w-full"
+>
+  <%- include("../_includes/aside-content-filter") %>
+  <div class="content-section flex-grow md:w-auto w-full mt-4 lg:mt-0">
+    <div class="card">
+      <div class="card-title flex items-center mb-4">
+        <h3>검색 결과</h3>
+      </div>
+      <div
+        class="text-smxs flex items-start md:items-center mb-5 md:flex-row flex-col"
+      >
+        <span class="text-gray-medium"> 1-24/1006개 검색 결과 표시 </span>
+        <div class="dropdown-select --outline ml-auto" data-dropdown>
+          <input
+            type="hidden"
+            name="selectedValue"
+            data-dropdown-value
+          />
+          <button
+            type="button"
+            class="dropdown-select-button"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            data-dropdown-toggle
+          >
+            전체
+          </button>
+          <ul
+            class="dropdown-select-menu hidden"
+            role="listbox"
+            data-dropdown-menu
+          >
+            <li role="option" data-dropdown-option value="1">
+              Option 1
+            </li>
+            <li role="option" data-dropdown-option value="2">
+              Option 2
+            </li>
+            <li role="option" data-dropdown-option value="3">
+              Option 3
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-content-container overflow-auto w-full max-w-full">
+        <div class="data-table mb-2">
+          <table>
+            <caption>
+              데이터테이블
+            </caption>
+            <thead>
+              <tr>
+                <th>
+                  <div class="custom-checkbox">
+                    <input
+                      type="checkbox"
+                      id="checkboxTableHeader"
+                      data-name="checkboxInput"
+                      class="hidden checkbox-input"
+                    />
+                    <label
+                      for="checkboxTableHeader"
+                      class="checkbox-label"
+                    ></label>
+                  </div>
+                </th>
+                <th>이름</th>
+                <th>가격</th>
+                <th>수량</th>
+                <th>장바구니</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% dummyTableData.forEach(function(person, i) { %>
+              <tr>
+                <td>
+                  <div class="custom-checkbox">
+                    <input
+                      type="checkbox"
+                      data-name="checkboxInput"
+                      id="checkboxTableCell-<%= i %>"
+                      class="hidden checkbox-input"
+                    />
+                    <label
+                      for="checkboxTableCell-<%= i %>"
+                      class="checkbox-label"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="cell-custom">
+                    <span class="cell-sub-text"> <%= person.name %> </span>
+                    <span>Some Text</span>
+                  </div>
+                </td>
+                <td><%= person.salary %></td>
+                <td>
+                  <div class="stepper" aria-label="Quantity">
+                    <button
+                      class="stepper-minus button --outline"
+                      aria-label="Decrease value"
+                    >
+                      -
+                    </button>
+                    <input
+                      type="text"
+                      class="stepper-input"
+                      aria-valuenow="0"
+                      value="0"
+                      role="spinbutton"
+                      aria-valuemin="0"
+                    />
+                    <button
+                      class="stepper-plus button --outline"
+                      aria-label="Increase value"
+                    >
+                      +
+                    </button>
+                  </div>
+                </td>
+                <td>
+                  <button class="button --outline --small" aria-label="Submit">
+                    <i class="icon --primary">
+                      <iconify-icon
+                        icon="ic:outline-shopping-bag"
+                      ></iconify-icon>
+                    </i>
+                    <span class="button-text">장바구니</span>
+                  </button>
+                </td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

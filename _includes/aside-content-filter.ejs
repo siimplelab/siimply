@@ -1,0 +1,114 @@
+<aside id="contentFilter" class="basis-full lg:basis-3/12">
+  <div id="mainFilterToggle" class="lg:hidden">
+    <button class="flex items-center button --outline --small space-x-2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1.5rem"
+        height="1.5rem"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="currentColor"
+          d="M10 18h4v-2h-4zM3 6v2h18V6zm3 7h12v-2H6z"
+        />
+      </svg>
+      <span> 필터 </span>
+    </button>
+  </div>
+  <div
+    id="mainFilter"
+    class="cards flex flex-col space-y-4 max-lg:hidden max-lg:mt-4"
+  >
+    <div class="card" data-js-accordion-item data-default-open="true">
+      <div class="card-title flex items-center">
+        <h3>호수</h3>
+        <button
+          data-name="accordionToggle"
+          data-js-accordion-header
+          aria-expanded="true"
+          class="--active accordion-toggle button-foldable ml-auto"
+        ></button>
+      </div>
+      <div
+        data-js-accordion-content
+        data-name="accordion-content"
+        class="card-items space-y-4 accordion-content"
+      >
+        <div class="card-item first:mt-4 flex items-center">
+          <div class="custom-checkbox">
+            <input
+              type="checkbox"
+              id="checkbox1"
+              data-name="checkboxInput"
+              class="hidden checkbox-input"
+            />
+            <label for="checkbox1" class="checkbox-label"></label>
+            <label for="checkbox1" class="ml-2">Custom Checkbox 1</label>
+          </div>
+          <div class="badge ml-auto">
+            <span>11</span>
+          </div>
+        </div>
+        <div class="card-item first:mt-4 flex items-center">
+          <div class="custom-checkbox">
+            <input
+              type="checkbox"
+              id="checkbox2"
+              data-name="checkboxInput"
+              class="hidden checkbox-input"
+              disabled
+            />
+            <label for="checkbox2" class="checkbox-label"></label>
+            <label for="checkbox2" class="ml-2">Custom Checkbox 2</label>
+          </div>
+          <div class="badge ml-auto">
+            <span>11</span>
+          </div>
+        </div>
+        <div class="card-item first:mt-4 flex items-center">
+          <div class="custom-checkbox">
+            <input
+              type="checkbox"
+              id="checkbox3"
+              data-name="checkboxInput"
+              class="hidden checkbox-input"
+            />
+            <label for="checkbox3" class="checkbox-label"></label>
+            <label for="checkbox3" class="ml-2">Custom Checkbox 3</label>
+          </div>
+          <div class="badge ml-auto">
+            <span>11</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-js-accordion-item data-default-open="true">
+      <div class="card-title flex items-center">
+        <h3>슬라이더</h3>
+        <button
+          data-name="accordionToggle"
+          class="--active accordion-toggle button-foldable ml-auto"
+          data-js-accordion-header
+          aria-expanded="true"
+        ></button>
+      </div>
+      <div
+        data-name="accordion-content"
+        class="card-items accordion-content"
+        data-js-accordion-content
+      >
+        <div class="card-item first:mt-6 flex items-center">
+          <div class="control-range control-range--custom">
+            <div id="slider-range" class="slider-range--custom"></div>
+            <div class="slider-range__values">
+              <label for="amount">
+                <input type="text" id="range-value-1" />
+                <input type="text" id="range-value-2" />
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>

@@ -1,0 +1,737 @@
+---
+layout: layout-dev
+pageTitle: Dev Components
+---
+<div class="slider-container" data-js-slider>
+  <input
+    type="range"
+    min="0"
+    max="100"
+    value="25"
+    class="slider"
+    id="slider-1"
+    data-js-slider-handle
+    aria-label="Lower range selector"
+  />
+  <input
+    type="range"
+    min="0"
+    max="100"
+    value="75"
+    class="slider"
+    id="slider-2"
+    data-js-slider-handle
+    aria-label="Upper range selector"
+  />
+</div>
+<div class="container p-4 mx-auto">
+  
+  <script>
+   
+   function initDualSlider() {
+  const slider1 = document.getElementById('slider-1');
+  const slider2 = document.getElementById('slider-2');
+  const sliderContainer = document.querySelector('[data-js-slider]');
+
+  function updateTrackSegment() {
+    const minVal = Math.min(slider1.value, slider2.value);
+    const maxVal = Math.max(slider1.value, slider2.value);
+    const percentage1 = (minVal - slider1.min) / (slider1.max - slider1.min) * 100;
+    const percentage2 = (maxVal - slider2.min) / (slider2.max - slider2.min) * 100;
+
+    sliderContainer.style.setProperty('--selected-range-start', `${percentage1}%`);
+    sliderContainer.style.setProperty('--selected-range-end', `${percentage2}%`);
+  }
+
+  slider1.addEventListener('input', () => {
+    updateTrackSegment();
+    adjustSliders();
+  });
+
+  slider2.addEventListener('input', () => {
+    updateTrackSegment();
+    adjustSliders();
+  });
+
+  function adjustSliders() {
+    if (parseInt(slider1.value) > parseInt(slider2.value)) {
+      [slider1.value, slider2.value] = [slider2.value, slider1.value];
+    }
+  }
+
+  // Initialize the track segment
+  updateTrackSegment();
+}
+
+// Initialize the slider
+initDualSlider();
+
+   </script>
+  <!-- ADDRESS LIST -->
+  <ul class="data-list">
+    <% for (let i = 0; i < 2; i++) { %>
+    <li
+      class="data-list-item py-6 first:pt-0 last:pb-0 last:border-0 border-b border-gray-300"
+    >
+      <div class="data-item-content space-y-2">
+        <div class="text-lg font-bold text-gray-darker">
+          <div class="custom-checkbox">
+            <input
+              type="checkbox"
+              id="checkbox1"
+              data-name="checkboxInput"
+              class="hidden checkbox-input"
+            />
+            <label for="checkbox1" class="checkbox-label"></label>
+            <label for="checkbox1" class="ml-2"> 레온어린이집3 </label>
+          </div>
+        </div>
+        <div class="flex space-x-2">
+          <span>010-3333-3333</span>
+        </div>
+        <div>(11111) 경기도 평택시 오성면 서동대로 2061-22</div>
+      </div>
+      <div class="button-group space-x-2 mt-4 flex items-center">
+        <% if (i === 0) { %>
+        <span class="font-bold text-primary-500">기본 배송지</span>
+        <% } %>
+        <button class="flex items-center button --outline --small space-x-2">
+          <span>편집</span>
+        </button>
+        <button class="flex items-center button --outline --small space-x-2">
+          <span>삭제</span>
+        </button>
+        <button class="flex items-center button --outline --small space-x-2">
+          <span>기본 배송지 설정</span>
+        </button>
+      </div>
+    </li>
+    <% } %>
+  </ul>
+  <!-- STATUS CONTENT -->
+  <div class="status-content">
+    <div class="amount-status">
+      <div class="amount-status-item">
+        <span class="amount-status-item-tag bg-primary-500">아</span>
+        <span class="amount-status-item-title">아이온에듀</span>
+      </div>
+      <div class="amount-status-item">
+        <span class="amount-status-item-tag bg-secondary-500">레</span>
+        <span class="amount-status-item-title">레몬에듀</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <button id="openModal" class="open-modal-button">Open Modal</button>
+
+  <div id="myModal" class="modal hidden --sm" data-modal>
+    <div
+      class="modal-content"
+      role="dialog"
+      aria-labelledby="modalTitle"
+      aria-describedby="modalDescription"
+    >
+      <div class="modal-content-body mb-8">
+        <div class="text-item flex flex-col text-sm text-gray-darker">
+          <span>아이온 예치금추가창입니다. </span>
+          <span>신중하게 진행해 주세요.</span>
+        </div>
+        <div class="form-group mt-4 flex flex-col space-y-2">
+          <div class="text-input --small --outline flex flex-col space-y-2">
+            <label for="textInput" class="custom-label">금액</label>
+            <input
+              type="text"
+              id="textInput"
+              name="textInput"
+              class="custom-text-input"
+              placeholder=""
+            />
+          </div>
+          <div
+            class="dropdown relative w-full --small flex flex-col space-y-2"
+            data-type="datepicker"
+          >
+            <label for="dateStart" class="custom-label">날짜</label>
+            <input
+              type="date"
+              class="dropdown-button --outline"
+              id="dateStart"
+              aria-haspopup="true"
+              aria-expanded="false"
+            />
+
+            <div
+              id="dropdownContent"
+              class="dropdown-content --center md:--right"
+              role="menu"
+            >
+              <ul>
+                <li role="menuitem"><a href="#">Link 1</a></li>
+                <li role="menuitem"><a href="#">Link 2</a></li>
+                <li role="menuitem"><a href="#">Link 3</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-group flex items-center justify-end space-x-2">
+        <button
+          class="button --small bg-gray-300 rounded close"
+          data-close-modal
+        >
+          닫기
+        </button>
+        <button class="button --small text-white bg-primary-500 rounded">
+          추가하기
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUTTON -->
+  <div>
+    <!-- BUTTON - NORMAL - W/ICON -->
+    <button class="flex items-center button --outline --small space-x-2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1.5rem"
+        height="1.5rem"
+        viewBox="0 0 24 24"
+      >
+        <path fill="currentColor" d="M7 13h4v4H7zm6 0h4v4h-4z" />
+        <path
+          fill="currentColor"
+          d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14z"
+        />
+        <path fill="currentColor" d="M7 7h4v4H7zm6 0h4v4h-4z" />
+      </svg>
+      <span>BUTTON</span>
+    </button>
+
+    <!-- BUTTON - NORMAL -->
+    <button class="flex items-center button --outline --small space-x-2">
+      <span>BUTTON</span>
+    </button>
+
+    <!-- BUTTON - SUBMIT -->
+    <button
+      class="button --solid --medium border-primary-500 bg-primary-500"
+      aria-label="Submit"
+    >
+      <span class="button-text">검색하기</span>
+    </button>
+
+    <!-- BUTTON - LINK -->
+    <a href="" class="button --text">000000000</a>
+    <button class="button --text" type="button">Button</button>
+  </div>
+
+  <!-- DIVIDER -->
+  <hr class="custom-divider" />
+
+  <!-- TABS -->
+  <div>
+    <div class="tabs">
+      <div class="tab-list" role="tablist" aria-label="Sample Tabs" data-tabs>
+        <button
+          class="tab-link"
+          role="tab"
+          aria-selected="true"
+          aria-controls="tab1-panel"
+          data-tab-target="tab1"
+        >
+          Tab 1
+        </button>
+        <button
+          class="tab-link"
+          role="tab"
+          aria-controls="tab2-panel"
+          data-tab-target="tab2"
+        >
+          Tab 2
+        </button>
+        <button
+          class="tab-link"
+          role="tab"
+          aria-controls="tab3-panel"
+          data-tab-target="tab3"
+        >
+          Tab 3
+        </button>
+      </div>
+      <div
+        id="tab1-panel"
+        class="tab-panel"
+        role="tabpanel"
+        tabindex="0"
+        data-tab-content="tab1"
+      >
+        <ul class="data-list">
+          <% for (let i = 0; i < 5; i++) { %>
+          <li
+            class="data-list-item py-6 last:border-0 border-b border-gray-300"
+          >
+            <div class="custom-checkbox">
+              <input
+                type="checkbox"
+                id="checkbox1"
+                data-name="checkboxInput"
+                class="hidden checkbox-input"
+              />
+              <label for="checkbox1" class="checkbox-label"></label>
+              <label for="checkbox1" class="ml-2">Custom Checkbox 1</label>
+            </div>
+            <div>
+              <span class="item-title">Item Title</span>
+            </div>
+            <div class="button-group space-x-2 flex items-center">
+              <button
+                class="flex items-center button --outline --small space-x-2"
+              >
+                <span>Button 1</span>
+              </button>
+              <button
+                class="flex items-center button --outline --small space-x-2"
+              >
+                <span>Button 1</span>
+              </button>
+              <button
+                class="flex items-center button --outline --small space-x-2"
+              >
+                <span>Button 1</span>
+              </button>
+            </div>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+      <div
+        id="tab2-panel"
+        class="tab-panel"
+        role="tabpanel"
+        tabindex="0"
+        hidden
+        data-tab-content="tab2"
+      >
+        Content for Tab 2
+      </div>
+      <div
+        id="tab3-panel"
+        class="tab-panel"
+        role="tabpanel"
+        tabindex="0"
+        hidden
+        data-tab-content="tab2"
+      >
+        Content for Tab 3
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKBOX -->
+  <!-- OPTIONS: --slim -->
+  <div class="custom-checkbox">
+    <input
+      type="checkbox"
+      id="checkbox1"
+      data-name="checkboxInput"
+      class="hidden checkbox-input"
+    />
+    <label for="checkbox1" class="checkbox-label"></label>
+    <label for="checkbox1" class="ml-2">Custom Checkbox 1</label>
+  </div>
+
+  <!-- BADGE -->
+  <div class="badge ml-auto">
+    <span>11</span>
+  </div>
+
+  <!-- TEXT INPUT -->
+  <!-- TEXT INPUT W/AUTO COMPLETE -->
+  <div class="text-input --outline flex flex-col space-y-2">
+    <label for="textInput" class="custom-label">검색어</label>
+    <input
+      type="text"
+      id="textInput"
+      name="textInput"
+      class="custom-text-input"
+      placeholder="검색어를 입력해 주세요"
+    />
+    <div class="menu-auto-complete" role="menu">
+      <ul>
+        <li role="menuitem"><a href="#">Link 1</a></li>
+        <li role="menuitem"><a href="#">Link 2</a></li>
+        <li role="menuitem"><a href="#">Link 3</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TEXT INPUT - NORMAL-->
+  <div class="text-input --outline flex flex-col space-y-2">
+    <label for="textInput" class="custom-label">검색어</label>
+    <input
+      type="text"
+      id="textInput"
+      name="textInput"
+      class="custom-text-input"
+      placeholder="검색어를 입력해 주세요"
+    />
+  </div>
+
+  <!-- DROPDOWN SELECT -->
+  <div class="data-filter-item flex flex-col space-y-2">
+    <label for="dropdownButton" class="custom-label">배송상태</label>
+    <div class="dropdown-select --outline" data-dropdown>
+      <input type="hidden" name="selectedValue" data-dropdown-value />
+      <button
+        type="button"
+        class="dropdown-select-button"
+        aria-haspopup="listbox"
+        aria-expanded="false"
+        data-dropdown-toggle
+      >
+        전체
+      </button>
+      <ul class="dropdown-select-menu hidden" role="listbox" data-dropdown-menu>
+        <li role="option" data-dropdown-option value="1">Option 1</li>
+        <li role="option" data-dropdown-option value="2">Option 2</li>
+        <li role="option" data-dropdown-option value="3">Option 3</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DROPDOWN -->
+  <div class="dropdown --small flex flex-col space-y-2" data-type="dropdown">
+    <button
+      type="button"
+      class="dropdown-button --outline"
+      id="dropdownButton"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      선택
+    </button>
+    <div
+      id="dropdownContent"
+      class="dropdown-content --center md:--right"
+      role="menu"
+    >
+      <ul>
+        <li role="menuitem"><a href="#">Link 1</a></li>
+        <li role="menuitem"><a href="#">Link 2</a></li>
+        <li role="menuitem"><a href="#">Link 3</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DATE PICKER -->
+  <div class="dropdown w-full flex flex-col space-y-2" data-type="datepicker">
+    <label for="dateStart" class="custom-label">시작일</label>
+    <input
+      type="date"
+      class="dropdown-button --outline"
+      id="dateStart"
+      aria-haspopup="true"
+      aria-expanded="false"
+    />
+
+    <div
+      id="dropdownContent"
+      class="dropdown-content --center md:--right"
+      role="menu"
+    >
+      <ul>
+        <li role="menuitem"><a href="#">Link 1</a></li>
+        <li role="menuitem"><a href="#">Link 2</a></li>
+        <li role="menuitem"><a href="#">Link 3</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DROPDOWN HTML SELECT -->
+  <select
+    name="tableFilter"
+    id="tableFilter"
+    class="md:ml-auto ml-0 md:mt-0 mt-2 dropdown-html-select"
+  >
+    <option value="기본">기본</option>
+    <option value="옵션">옵션</option>
+  </select>
+
+  <!-- CUSTOM LABEL -->
+  <label for="" class="custom-label">배송상태</label>
+
+  <!-- CONTENT BOX -->
+  <div class="content-box mb-4"></div>
+
+  <!-- TEXTAREA -->
+  <div class="text-area">
+    <label for="message" class="text-area-label hidden">Message</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      class="text-area-field"
+      placeholder="내용을 입력해 주세요"
+    ></textarea>
+  </div>
+
+  <!-- ALERT -->
+  <div class="alert" role="alert">
+    주문 상태가 결제 대기중에서 결제완료(으)로 변경됐습니다.
+  </div>
+
+  <!-- DATA TABLE -->
+  <h2>DATA TABLE</h2>
+  <div
+    class="text-smxs flex items-start md:items-center mb-5 md:flex-row flex-col"
+  >
+    <span class="text-gray-medium"> 1-24/1006개 검색 결과 표시 </span>
+    <select
+      name="tableFilter"
+      id="tableFilter"
+      class="md:ml-auto ml-0 md:mt-0 mt-2 dropdown-html-select"
+    >
+      <option value="기본">기본</option>
+      <option value="옵션">옵션</option>
+    </select>
+  </div>
+  <div class="card-content-container overflow-auto w-full max-w-full">
+    <div class="data-table mb-2">
+      <table>
+        <caption>
+          Employee Data
+        </caption>
+        <thead>
+          <tr>
+            <th>
+              <div class="custom-checkbox">
+                <input
+                  type="checkbox"
+                  id="checkboxTableHeader"
+                  data-name="checkboxInput"
+                  class="hidden checkbox-input"
+                />
+                <label for="checkboxTableHeader" class="checkbox-label"></label>
+              </div>
+            </th>
+            <th>이름</th>
+            <th>가격</th>
+            <th>수량</th>
+            <th>장바구니</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% dummyTableData.forEach(function(person, i) { %>
+          <tr>
+            <td>
+              <div class="custom-checkbox">
+                <input
+                  type="checkbox"
+                  data-name="checkboxInput"
+                  id="checkboxTableCell-<%= i %>"
+                  class="hidden checkbox-input"
+                />
+                <label
+                  for="checkboxTableCell-<%= i %>"
+                  class="checkbox-label"
+                ></label>
+              </div>
+            </td>
+            <td>
+              <div class="cell-custom">
+                <span class="cell-sub-text"> <%= person.name %> </span>
+                <span>Some Text</span>
+              </div>
+            </td>
+            <td><%= person.salary %></td>
+            <td>
+              <div class="stepper" aria-label="Quantity">
+                <button
+                  class="stepper-minus button --outline"
+                  aria-label="Decrease value"
+                >
+                  -
+                </button>
+                <input
+                  type="text"
+                  class="stepper-input"
+                  aria-valuenow="0"
+                  value="0"
+                  role="spinbutton"
+                  aria-valuemin="0"
+                />
+                <button
+                  class="stepper-plus button --outline"
+                  aria-label="Increase value"
+                >
+                  +
+                </button>
+              </div>
+            </td>
+            <td>
+              <button class="button --outline --small" aria-label="Submit">
+                <i class="icon --primary">
+                  <iconify-icon icon="ic:outline-shopping-bag"></iconify-icon>
+                </i>
+                <span class="button-text">장바구니</span>
+              </button>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card-content-container overflow-x-auto w-full">
+    <div class="data-table text-xs mb-2">
+      <table>
+        <caption>
+          데이터테이블
+        </caption>
+        <thead>
+          <tr>
+            <th>교환번호</th>
+            <th>교환상태</th>
+            <th>운송장번호</th>
+            <th>주문번호</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% dummyTableData.forEach(function(person, i) { %>
+          <tr>
+            <td>202332222-1</td>
+            <td>교환</td>
+            <td><a href="" class="button --text">000000000</a></td>
+            <td>0000000</td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-content-container">
+    <nav
+      class="pagination flex items-center justify-center space-x-3 py-5"
+      aria-label="Page navigation"
+    >
+      <button data-name="pagination-prev-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1rem"
+          height="1rem"
+          viewBox="0 0 16 17"
+          fill="none"
+        >
+          <path
+            d="M10.6667 15.1667L4 8.50004L10.6667 1.83337L11.85 3.01671L6.36667 8.50004L11.85 13.9834L10.6667 15.1667Z"
+            fill="#555555"
+          />
+        </svg>
+      </button>
+      <ul class="pagination-pages">
+        <% for (let i = 1; i < 10; i++) { %>
+        <li>
+          <a href="?page=1" class="page-link" aria-label="Go to page 1"
+            ><%= i %></a
+          >
+        </li>
+        <% } %>
+      </ul>
+      <button data-name="pagination-next-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1rem"
+          height="1rem"
+          viewBox="0 0 16 17"
+          fill="none"
+        >
+          <path
+            d="M5.34935 15.1667L4.16602 13.9834L9.64935 8.50004L4.16602 3.01671L5.34935 1.83337L12.016 8.50004L5.34935 15.1667Z"
+            fill="#555555"
+          />
+        </svg>
+      </button>
+    </nav>
+  </div>
+  <div class="card-content-container overflow-x-auto w-full">
+    <div class="data-table text-xs mb-2">
+      <table>
+        <caption>
+          데이터테이블
+        </caption>
+        <thead>
+          <tr>
+            <th>주문총금액</th>
+            <th>주문번호</th>
+            <th>주문상품</th>
+            <th>배송비</th>
+            <th>원배송처</th>
+            <th>추가배송비</th>
+            <th>운송장번호</th>
+            <th>주문상태</th>
+            <th>외상거래사용액</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% dummyTableData.forEach(function(person, i) { %>
+          <tr>
+            <td>
+              <div class="cell-custom space-y-1">
+                <div
+                  class="cell-custom-item inline-flex items-center space-x-2 text-xs"
+                >
+                  <span class="amount-status-item-tag bg-primary-500">아</span>
+                  <span>0,000,0000원</span>
+                </div>
+                <div
+                  class="cell-custom-item inline-flex items-center space-x-2 text-xs"
+                >
+                  <span class="amount-status-item-tag bg-secondary-500"
+                    >레</span
+                  >
+                  <span>0,000,0000원</span>
+                </div>
+              </div>
+            </td>
+            <td>주문번호</td>
+            <td>주문상품</td>
+            <td>배송비</td>
+            <td>
+              <div class="cell-custom space-y-1">
+                <span class="cell-sub-text"> <%= person.name %> </span>
+                <span>Some Text</span>
+              </div>
+            </td>
+            <td><%= person.salary %></td>
+            <td>
+              <a href="" class="button --text">000000000</a>
+            </td>
+            <td>주문상태</td>
+            <td>
+              <div class="cell-custom space-y-1">
+                <div
+                  class="cell-custom-item inline-flex items-center space-x-2 text-xs"
+                >
+                  <span class="amount-status-item-tag bg-primary-500">아</span>
+                  <span>0,000,0000원</span>
+                </div>
+                <div
+                  class="cell-custom-item inline-flex items-center space-x-2 text-xs"
+                >
+                  <span class="amount-status-item-tag bg-secondary-500"
+                    >레</span
+                  >
+                  <span>0,000,0000원</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,113 @@
+---
+layout: layout-mypage
+pageTitle: 마이페이지 - 인덱스
+---
+
+<div
+  id="contentWrapper"
+  class="px-4 flex flex-wrap lg:flex-nowrap space-x-0 lg:space-x-4 container mx-auto w-full"
+>
+  <%- include("../_includes/aside-content-mypage") %>
+  <div class="content-section flex-grow md:w-auto w-full mt-4 lg:mt-0">
+    <div class="card py-8">
+      <div class="card-title flex items-center mb-4">
+        <h3>admin 님은 최고시스템관리자이십니다.</h3>
+      </div>
+      <div class="card-content-container overflow-auto w-full max-w-full">
+        <div class="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-2 gap-4">
+          <a
+            href=""
+            class="inline-flex flex-col space-y-4 h-60 justify-center items-center bg-gray-200 text-lg rounded-2xl font-semibold"
+          >
+            <svg
+              width="6rem"
+              height="6rem"
+              viewBox="0 0 96 96"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M72 8H52C52 10.2 50.2 12 48 12C45.8 12 44 10.2 44 8H24C19.6 8 16 11.6 16 16V80C16 84.4 19.6 88 24 88H72C76.4 88 80 84.4 80 80V16C80 11.6 76.4 8 72 8Z"
+                fill="#455A64"
+              />
+              <path
+                d="M72 82H24C22.8 82 22 81.2 22 80V16C22 14.8 22.8 14 24 14H72C73.2 14 74 14.8 74 16V80C74 81.2 73.2 82 72 82Z"
+                fill="white"
+              />
+              <path
+                d="M52 8C52 10.2 50.2 12 48 12C45.8 12 44 10.2 44 8H30V16C30 18.2 31.8 20 34 20H62C64.2 20 66 18.2 66 16V8H52Z"
+                fill="#90A4AE"
+              />
+              <path
+                d="M48 0C43.6 0 40 3.6 40 8C40 12.4 43.6 16 48 16C52.4 16 56 12.4 56 8C56 3.6 52.4 0 48 0ZM48 12C45.8 12 44 10.2 44 8C44 5.8 45.8 4 48 4C50.2 4 52 5.8 52 8C52 10.2 50.2 12 48 12Z"
+                fill="#90A4AE"
+              />
+              <path d="M42 40H66V44H42V40ZM30 38H38V46H30V38Z" fill="#CFD8DC" />
+              <path d="M42 58H66V62H42V58ZM30 56H38V64H30V56Z" fill="#03A9F4" />
+            </svg>
+
+            <span>주문내역 조회</span>
+          </a>
+          <a
+            href=""
+            class="inline-flex flex-col space-y-4 h-60 justify-center items-center bg-gray-200 text-lg rounded-2xl font-semibold"
+          >
+          <svg width="6rem" height="6rem" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M80 90H16V6H60L80 26V90Z" fill="#90CAF9"/>
+            <path d="M77 28H58V9L77 28Z" fill="#E1F5FE"/>
+            <path d="M36 46H68V50H36V46ZM36 38H68V42H36V38ZM28 38H32V42H28V38ZM28 46H32V50H28V46ZM28 70H32V74H28V70ZM28 54H32V58H28V54ZM28 62H32V66H28V62ZM68 54V56.52C66.7 56.18 65.36 56 64 56C61.2 56 58.58 56.72 56.28 58H36V54H68ZM48.16 74H36V70H48.12C48.04 70.66 48 71.32 48 72C48 72.68 48.04 73.34 48.16 74ZM51.54 62C50.56 63.2 49.76 64.54 49.18 66H36V62H51.54Z" fill="#1976D2"/>
+            <path d="M84 60C79.8 60 76.2 62.2 74 65.4C71.8 62.2 68.2 60 64 60C57.4 60 52 65.4 52 72C52 84 74 96 74 96C74 96 96 84 96 72C96 65.4 90.6 60 84 60Z" fill="#FF3D00"/>
+            </svg>
+            
+
+            <span>회원정보</span>
+          </a>
+          <a
+            href=""
+            class="inline-flex flex-col space-y-4 h-60 justify-center items-center bg-gray-200 text-lg rounded-2xl font-semibold"
+          >
+          <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M48 8C25.894 8 8 25.894 8 48C8 70.106 25.894 88 48 88C70.106 88 88 70.106 88 48C88 25.894 70.106 8 48 8Z" fill="#FF3D00"/>
+            <path d="M48 16C30.292 16 16 30.292 16 48C16 65.708 30.292 80 48 80C65.708 80 80 65.708 80 48C80 30.292 65.708 16 48 16ZM48 72C34.688 72 24 61.312 24 48C24 34.688 34.688 24 48 24C61.312 24 72 34.688 72 48C72 61.312 61.312 72 48 72ZM48 32C39.09 32 32 39.09 32 48C32 56.91 39.09 64 48 64C56.91 64 64 56.91 64 48C64 39.09 56.91 32 48 32ZM48 56C43.468 56 40 52.532 40 48C40 43.468 43.468 40 48 40C52.532 40 56 43.468 56 48C56 52.532 52.532 56 48 56Z" fill="white"/>
+            <path d="M85.9996 18C85.9996 18 84.7956 22.602 81.6016 25.602C78.3976 28.798 65.6016 30.398 65.6016 30.398C65.6016 30.398 67.2036 17.398 70.3976 14.398C73.3976 11.204 77.9996 10 77.9996 10V18H85.9996Z" fill="#1976D2"/>
+            <path d="M85.398 10.602C84.602 9.79802 83.398 9.79802 82.602 10.602L46.602 46.602C45.798 47.398 45.798 48.602 46.602 49.398C47 49.796 47.602 50 48 50C48.398 50 49 49.796 49.398 49.398L85.398 13.398C86.204 12.602 86.204 11.398 85.398 10.602Z" fill="#37474F"/>
+            <path d="M77.9537 15.4541L80.7817 18.2821L69.0477 30.0241L66.2197 27.1961L77.9537 15.4541Z" fill="#42A5F5"/>
+            </svg>
+            
+            <span>1:1 맞춤상담</span>
+          </a>
+          <a
+            href=""
+            class="inline-flex flex-col space-y-4 h-60 justify-center items-center bg-gray-200 text-lg rounded-2xl font-semibold"
+          >
+          <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M72 8H52C52 10.21 50.21 12 48 12C45.79 12 44 10.21 44 8H24C19.578 8 16 11.578 16 16V80C16 84.422 19.578 88 24 88H72C76.422 88 80 84.422 80 80V16C80 11.578 76.422 8 72 8Z" fill="#6D4C41"/>
+            <path d="M72 82H24C22.898 82 22 81.102 22 80V16C22 14.898 22.898 14 24 14H72C73.102 14 74 14.898 74 16V80C74 81.102 73.102 82 72 82Z" fill="white"/>
+            <path d="M52 8C52 10.21 50.21 12 48 12C45.79 12 44 10.21 44 8H30V16C30 18.21 31.79 20 34 20H62C64.21 20 66 18.21 66 16V8H52Z" fill="#90A4AE"/>
+            <path d="M48 0C43.586 0 40 3.586 40 8C40 12.414 43.586 16 48 16C52.414 16 56 12.414 56 8C56 3.586 52.414 0 48 0ZM48 12C45.79 12 44 10.21 44 8C44 5.79 45.79 4 48 4C50.21 4 52 5.79 52 8C52 10.21 50.21 12 48 12Z" fill="#90A4AE"/>
+            <path d="M61.7162 32.644L67.3542 38.284C68.2142 39.142 68.2142 40.536 67.3542 41.394L64.6982 44.05L55.9482 35.298L58.6042 32.644C59.4642 31.786 60.8562 31.786 61.7162 32.644Z" fill="#E57373"/>
+            <path d="M30.9385 60.306L39.6905 69.058L60.3205 48.428L51.5685 39.676L30.9385 60.306Z" fill="#FF9800"/>
+            <path d="M51.5664 39.672L60.3164 48.428L64.6924 44.054L55.9424 35.298L51.5664 39.672Z" fill="#B0BEC5"/>
+            <path d="M39.696 69.054L28 72L30.944 60.304L39.696 69.054Z" fill="#FFC107"/>
+            <path d="M33.912 70.512L28 72L29.488 66.088L33.912 70.512Z" fill="#37474F"/>
+            </svg>
+            
+
+            <span>배송 주소록 관리</span>
+          </a>
+          <a
+            href=""
+            class="inline-flex flex-col space-y-4 h-60 justify-center items-center bg-gray-200 text-lg rounded-2xl font-semibold"
+          >
+          <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M42.4 89.6L6.4 53.6C3.2 50.4 3.2 45.4001 6.4 42.2001L42.4 6.20005C45.6 3.00005 50.6 3.00005 53.8 6.20005L89.8 42.2001C93 45.4001 93 50.4 89.8 53.6L53.8 89.6C50.6 92.8 45.4 92.8 42.4 89.6Z" fill="#4CAF50"/>
+            <path d="M48 66.8L34 50H62L48 66.8Z" fill="#FFEB3B"/>
+            <path d="M44 29.6H52V54.2H44V29.6Z" fill="#FFEB3B"/>
+            </svg>
+            <span>로그아웃</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

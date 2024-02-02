@@ -1,0 +1,268 @@
+---
+layout: layout-independent
+pageTitle: 관리자 - 월인보이스
+---
+
+<!-- 관리자 모드 -->
+<%- include('../_includes/modifier-admin-mode.ejs') %>
+
+
+<!-- 본문 -->
+<div
+  id="contentWrapper"
+  class="px-4 flex flex-wrap lg:flex-nowrap space-x-0 lg:space-x-4 container mx-auto w-full"
+>
+  <div class="content-section flex-grow w-full mt-4 lg:mt-0">
+    <div class="card py-8">
+      <div class="card-content-container w-full">
+        <div class="item-detail max-w-full">
+          <div class="item-detail__head mb-8">
+        
+            <div class="item-detail__title justify-start">
+              <h2>월인보이스
+            </div>
+            <div class="item-detail__back-btn">
+              <button
+                type="button"
+                aria-label="뒤로 가기"
+                data-name="backButton"
+              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="2.25rem" height="2.25rem" viewBox="0 0 36 36" fill="none">
+                <path d="M9.6 28.5L7.5 26.4L15.9 18L7.5 9.6L9.6 7.5L18 15.9L26.4 7.5L28.5 9.6L20.1 18L28.5 26.4L26.4 28.5L18 20.1L9.6 28.5Z" fill="#1C1C1F"/>
+              </svg>
+              </button>
+            </div>
+          </div>
+          <div class="item-detail__body space-y-4">
+            <div class="content-box">
+              <div class="data-group grid grid-cols-2 gap-4">
+                <% 
+                const invoiceLabels1 = ["지사명", "사업장 주소", "사업자번호", "인보이스 기간"];
+                const invoiceValues1 = ["아이온에듀", "경기도 평택", "000-00-0000", "0000-00-00 ~ 0000-00-00"]
+                %>
+                <% for (let i = 0; i < 4; i++) { %>
+                <div class="data-item flex">
+                  <dt class="basis-24"><%= invoiceLabels1[i] %></dt>
+                  <dd class="font-bold"><%= invoiceValues1[i] %></dd>
+                </div>
+                <% } %>
+              </div>
+            </div>
+            <div class="content-group py-4">
+              <div class="status-content">
+                <div class="amount-status">
+                  <div class="amount-status-item">
+                    <span class="amount-status-item-tag bg-primary-500">아</span>
+                    <span class="amount-status-item-title">아이온에듀</span>
+                  </div>
+                  <div class="amount-status-item">
+                    <span class="amount-status-item-tag bg-secondary-500"
+                      >레</span
+                    >
+                    <span class="amount-status-item-title">아이온에듀</span>
+                  </div>
+                </div>
+              </div>
+              <div class="data-table-item mt-4 overflow-x-auto w-full">
+                <div class="data-table text-xs mb-2">
+                  <table>
+                    <caption>
+                      데이터테이블
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th>지사명/운송비</th>
+                        <th>부가세(각각)</th>
+                        <th>매출총액(합, 각각)</th>
+                        <th>미수금</th>
+                        <th>전체 미수금</th>
+
+                        <th>인보이스</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% dummyTableData.forEach(function(person, i) { %>
+                      <tr>
+                        <td>지사명/운송비</td>
+                        <td><div class="cell-custom space-y-1">
+                          <div
+                            class="cell-custom-item inline-flex items-center space-x-2 text-xs"
+                          >
+                            <span class="amount-status-item-tag bg-primary-500">아</span>
+                            <span>0원</span>
+                          </div>
+                          <div
+                            class="cell-custom-item inline-flex items-center space-x-2 text-xs"
+                          >
+                            <span class="amount-status-item-tag bg-secondary-500"
+                              >레</span
+                            >
+                            <span>0원</span>
+                          </div>
+                        </div></td>
+                        <td>
+                          <div class="cell-custom flex flex-col space-y-1">
+                            <span>총0원</span>
+                            <div class="cell-custom space-y-1">
+                              <div
+                                class="cell-custom-item inline-flex items-center space-x-2 text-xs"
+                              >
+                                <span class="amount-status-item-tag bg-primary-500">아</span>
+                                <span>0원</span>
+                              </div>
+                              <div
+                                class="cell-custom-item inline-flex items-center space-x-2 text-xs"
+                              >
+                                <span class="amount-status-item-tag bg-secondary-500"
+                                  >레</span
+                                >
+                                <span>0원</span>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><button class="button --xsmall --outline">보기</button></td>
+                      </tr>
+                      <% }) %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="content-group py-4">
+              <h3 class="text-xl font-bold">인보이스 상세</h3>
+              <div class="data-table-item mt-4 overflow-x-auto w-full">
+                <div class="data-table text-xs mb-2 --white">
+                  <table>
+                    <caption>
+                      데이터테이블
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th>주문번호</th>
+                        <th>주문일자</th>
+                        <th>상품명</th>
+                        <th>주문수량</th>
+                        <th>박스수량</th>
+                        <th>공급가</th>
+                        <th>세액</th>
+                        <th>운송비</th>
+                        <th>합계금액</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% for (let i = 0; i < 1; i++) { %>
+                      <tr>
+                        <td>0000</td>
+                        <td>
+                          0000-00-00 00:00:00
+                        </td>
+                        <td>
+                          가베06호
+                        </td>
+                        <td>1개</td>
+                        <td>1개</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <td colspan="2">
+                        </td>
+                        <td>가베06호</td>
+                        <td>1개</td>
+                        <td>1개</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                      </tr>
+                      <% } %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="content-group py-4">
+                <h3 class="text-xl font-bold">아이온에듀</h3>
+                <div class="data-table-item mt-4 overflow-x-auto w-full">
+                  <div class="data-table --simple text-xs mb-2 --white">
+                    <table>
+                      <caption>
+                        데이터테이블
+                      </caption>
+                      <thead>
+                        <tr>
+                          <th>주문내역</th>
+                          <th>금액</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% for (let i = 0; i < 10; i++) { %>
+                        <tr>
+                          <td>0000</td>
+                          <td>
+                            0000-00-00 00:00:00
+                          </td>
+                        </tr>
+                        <% } %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="content-group py-4">
+                <h3 class="text-xl font-bold">레몬에듀</h3>
+                <div class="data-table-item mt-4 overflow-x-auto w-full">
+                  <div class="data-table --simple text-xs mb-2 --white">
+                    <table>
+                      <caption>
+                        데이터테이블
+                      </caption>
+                      <thead>
+                        <tr>
+                          <th>주문내역</th>
+                          <th>금액</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% for (let i = 0; i < 10; i++) { %>
+                        <tr>
+                          <td>0000</td>
+                          <td>
+                            0000-00-00 00:00:00
+                          </td>
+                        </tr>
+                        <% } %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-content-container w-full">
+        <div class="button-group flex items-center justify-end space-x-2">
+          <button
+            class="button --solid --medium-large border-primary-500 bg-primary-500"
+            aria-label="Submit"
+          >
+            <span class="button-text">프린트</span>
+          </button>
+          <button
+            class="button --solid --medium-large border-primary-500 bg-primary-500"
+            aria-label="Submit"
+          >
+            <span class="button-text">메일전송</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

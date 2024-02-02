@@ -1,0 +1,135 @@
+<div class="w-full bg-white">
+  <header id="topBar" class="px-4 container mx-auto relative">
+    <div id="topLogo" class="top-logo pt-12 flex justify-center items-center">
+      <a href="/">
+        <img src="/images/logo/ionedu_remonedu_logo.svg" alt="Logo" />
+      </a>
+    </div>
+    <div
+      id="topProfile"
+      class="/* Flex */ flex justify-end items-center space-x-4 lg:space-x-6 /* Position */ absolute max-lg:top-auto max-lg:bottom-5 /* Layout */ h-min right-10 top-12 max-lg:right-auto max-lg:left-8 /* Text */ text-sm lg:text-xs text-gray-darker"
+    >
+      <div class="top-profile-item max-lg:flex max-lg:items-center">
+        <div
+          class="top-profile-badge inline-flex relative lg:absolute text-white bg-red-500 rounded-md font-bold py-1 px-2 -mt-1 -ml-1 max-lg:mr-1.5"
+        >
+          1
+        </div>
+        <a
+          href=""
+          class="top-profile-link flex flex-col items-center space-y-1.5 max-lg:space-y-0"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="3rem"
+            height="3rem"
+            viewBox="0 0 48 48"
+            fill="none"
+            class="max-lg:hidden"
+          >
+            <path
+              d="M12 44C10.9 44 9.958 43.608 9.174 42.824C8.39 42.04 7.99867 41.0987 8 40V16C8 14.9 8.392 13.958 9.176 13.174C9.96 12.39 10.9013 11.9987 12 12H16C16 9.8 16.7833 7.91667 18.35 6.35C19.9167 4.78333 21.8 4 24 4C26.2 4 28.0833 4.78333 29.65 6.35C31.2167 7.91667 32 9.8 32 12H36C37.1 12 38.042 12.392 38.826 13.176C39.61 13.96 40.0013 14.9013 40 16V40C40 41.1 39.608 42.042 38.824 42.826C38.04 43.61 37.0987 44.0013 36 44H12ZM12 40H36V16H32V20C32 20.5667 31.808 21.042 31.424 21.426C31.04 21.81 30.5653 22.0013 30 22C29.4333 22 28.958 21.808 28.574 21.424C28.19 21.04 27.9987 20.5653 28 20V16H20V20C20 20.5667 19.808 21.042 19.424 21.426C19.04 21.81 18.5653 22.0013 18 22C17.4333 22 16.958 21.808 16.574 21.424C16.19 21.04 15.9987 20.5653 16 20V16H12V40ZM20 12H28C28 10.9 27.608 9.958 26.824 9.174C26.04 8.39 25.0987 7.99867 24 8C22.9 8 21.958 8.392 21.174 9.176C20.39 9.96 19.9987 10.9013 20 12Z"
+              fill="#1C1C1F"
+            />
+          </svg>
+          <span>장바구니</span>
+        </a>
+      </div>
+      <div class="top-profile-item">
+        <a
+          href=""
+          class="top-profile-link flex flex-col items-center space-y-1.5 max-lg:space-y-0"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="3rem"
+            height="3rem"
+            viewBox="0 0 49 48"
+            fill="none"
+            class="max-lg:hidden"
+          >
+            <path
+              d="M24.5 11.8C25.0516 11.8 25.5977 11.9086 26.1073 12.1197C26.6168 12.3308 27.0798 12.6401 27.4698 13.0302C27.8599 13.4202 28.1692 13.8832 28.3803 14.3927C28.5914 14.9023 28.7 15.4484 28.7 16C28.7 16.5516 28.5914 17.0977 28.3803 17.6073C28.1692 18.1168 27.8599 18.5798 27.4698 18.9698C27.0798 19.3599 26.6168 19.6692 26.1073 19.8803C25.5977 20.0914 25.0516 20.2 24.5 20.2C23.3861 20.2 22.3178 19.7575 21.5302 18.9698C20.7425 18.1822 20.3 17.1139 20.3 16C20.3 14.8861 20.7425 13.8178 21.5302 13.0302C22.3178 12.2425 23.3861 11.8 24.5 11.8ZM24.5 29.8C30.44 29.8 36.7 32.72 36.7 34V36.2H12.3V34C12.3 32.72 18.56 29.8 24.5 29.8ZM24.5 8C20.08 8 16.5 11.58 16.5 16C16.5 20.42 20.08 24 24.5 24C28.92 24 32.5 20.42 32.5 16C32.5 11.58 28.92 8 24.5 8ZM24.5 26C19.16 26 8.5 28.68 8.5 34V40H40.5V34C40.5 28.68 29.84 26 24.5 26Z"
+              fill="#1C1C1F"
+            />
+          </svg>
+          <span>마이페이지</span>
+        </a>
+      </div>
+    </div>
+    <div id="topSearch" class="flex pt-7 pb-8">
+      <form action="" method="GET" class="flex-grow flex justify-center">
+        <label for="search" class="sr-only">검색</label>
+        <div class="flex relative main-search-input">
+          <button
+            type="submit"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 focus:outline-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1.5rem"
+              height="1.5rem"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <g clip-path="url(#clip0_176_4255)">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M10.5003 2C9.14485 2.00012 7.80912 2.32436 6.60451 2.94569C5.3999 3.56702 4.36135 4.46742 3.57549 5.57175C2.78963 6.67609 2.27926 7.95235 2.08696 9.29404C1.89466 10.6357 2.026 12.004 2.47003 13.2846C2.91406 14.5652 3.6579 15.7211 4.63949 16.6557C5.62108 17.5904 6.81196 18.2768 8.11277 18.6576C9.41358 19.0384 10.7866 19.1026 12.1173 18.8449C13.448 18.5872 14.6977 18.015 15.7623 17.176L19.4143 20.828C19.6029 21.0102 19.8555 21.111 20.1177 21.1087C20.3799 21.1064 20.6307 21.0012 20.8161 20.8158C21.0015 20.6304 21.1066 20.3796 21.1089 20.1174C21.1112 19.8552 21.0104 19.6026 20.8283 19.414L17.1763 15.762C18.1642 14.5086 18.7794 13.0024 18.9514 11.4157C19.1233 9.82905 18.8451 8.22602 18.1485 6.79009C17.4519 5.35417 16.3651 4.14336 15.0126 3.29623C13.66 2.44911 12.0962 1.99989 10.5003 2ZM4.00025 10.5C4.00025 8.77609 4.68507 7.12279 5.90406 5.90381C7.12305 4.68482 8.77635 4 10.5003 4C12.2242 4 13.8775 4.68482 15.0964 5.90381C16.3154 7.12279 17.0003 8.77609 17.0003 10.5C17.0003 12.2239 16.3154 13.8772 15.0964 15.0962C13.8775 16.3152 12.2242 17 10.5003 17C8.77635 17 7.12305 16.3152 5.90406 15.0962C4.68507 13.8772 4.00025 12.2239 4.00025 10.5Z"
+                  fill="#1C1C1F"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_176_4255">
+                  <rect width="24" height="24" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+          <input
+            type="search"
+            id="mainSearchInput"
+            name="mainSearchInput"
+            class="flex-grow py-2 pr-2 pl-14 border rounded-full focus:ring focus:ring-blue-200 focus:ring-opacity-50 bg-white"
+            placeholder="상품명을 입력해 주세요"
+          />
+        </div>
+      </form>
+    </div>
+    <nav id="topNav" aria-label="Main navigation" class="">
+      <div class="top-nav-button-wrapper flex justify-end px-4">
+        <button
+          id="topNavToggle"
+          class="lg:hidden mb-5 flex items-center space-x-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1.5rem"
+            height="1.5rem"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="currentColor"
+              d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z"
+            />
+          </svg>
+          <span>메뉴</span>
+        </button>
+      </div>
+      <ul
+        id="topNavMenu"
+        class="/* Layout */ flex absolute lg:static justify-center lg:flex-row flex-col px-4 max-lg:mr-4 max-lg:right-0 pb-4 lg:pb-11 /* Box Model */ z-10 max-lg:shadow-lg /* Spacing */ lg:space-x-4 /* Display */ max-lg:hidden /* Colors and Background */ bg-white"
+      >
+        <% mainMenuItems.forEach(function (image, index) { %>
+        <li>
+          <a href="/" class="main-nav-button">
+            <div class="thumb-image max-lg:!hidden"><%- image.url %></div>
+            <span><%- image.name %></span>
+          </a>
+        </li>
+        <% }) %>
+      </ul>
+    </nav>
+  </header>
+</div>

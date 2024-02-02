@@ -1,0 +1,25 @@
+@layer components {
+  .modal {
+    @apply fixed top-0 left-0 w-full h-full flex items-center justify-center;
+    background-color: rgba(0, 0, 0, 0.5); // Overlay background
+    z-index: 1000;
+
+    &.--sm {
+      .modal-content {
+        width: 100%;
+        max-width: 22.5rem;
+      }
+    }
+
+    &.--md {
+      .modal-content {
+        width: 100%;
+        max-width: 35rem;
+      }
+    }
+
+    .modal-content {
+      @apply bg-white p-6 rounded-lg;
+    }
+  }
+}

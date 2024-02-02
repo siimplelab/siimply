@@ -1,0 +1,660 @@
+---
+layout: layout-content
+pageTitle: 관리자 - 주문 상세
+---
+
+<!-- 관리자 모드 -->
+<%- include('../_includes/modifier-admin-mode.ejs') %>
+
+<div
+  id="contentWrapper"
+  class="px-4 flex flex-wrap lg:flex-nowrap space-x-0 lg:space-x-4 container mx-auto w-full"
+>
+  <div class="content-section flex-grow w-full mt-4 lg:mt-0">
+    <div class="card py-8">
+      <div class="card-content-container w-full">
+        <div class="item-detail max-w-full">
+          <div class="item-detail__head mb-8">
+            <div class="item-detail__back-btn">
+              <button
+                type="button"
+                aria-label="뒤로 가기"
+                data-name="backButton"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="2.25rem"
+                  height="2.25rem"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                >
+                  <path
+                    d="M11.7375 19.5L20.1375 27.9L18 30L6 18L18 6L20.1375 8.1L11.7375 16.5H30V19.5H11.7375Z"
+                    fill="#1C1C1F"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="item-detail__title ml-8 justify-start">
+              <h2>주문 상세보기</h2>
+            </div>
+          </div>
+          <div class="item-detail__body space-y-4">
+            <div class="content-box">
+              <div class="form-group grid grid-cols-4 gap-4">
+                <% let dummyOrderTableData = [ "아이온 결제 필요 금액", "아이온 선금 사용액", "아이온 외상거래 사용액", "레몬 결제 필요 금액", "레몬 외상거래 사용액", "아이온 추가 배송박스", "레몬 추가 배송박스", "추가 배송비 납입여부", "배송비 주관 브랜드", "추가배송비", "추가배송입금" ] %> 
+                <% for (let i = 0; i < 11; i++) { %>
+                <div class="text-input --outline flex flex-col space-y-2">
+                  <label for="textInput" class="custom-label" ><%= dummyOrderTableData[i] %>
+                  </label >
+                  <% if (i === 8 || i === 7) { %>
+                  <div class="dropdown-select --outline" data-dropdown>
+                    <input
+                      type="hidden"
+                      name="selectedValue"
+                      data-dropdown-value
+                    />
+                    <button
+                      type="button"
+                      class="dropdown-select-button w-full"
+                      aria-haspopup="listbox"
+                      aria-expanded="false"
+                      data-dropdown-toggle
+                    >
+                      전체
+                    </button>
+                    <ul
+                      class="dropdown-select-menu hidden"
+                      role="listbox"
+                      data-dropdown-menu
+                    >
+                      <li role="option" data-dropdown-option value="1">
+                        Option 1
+                      </li>
+                      <li role="option" data-dropdown-option value="2">
+                        Option 2
+                      </li>
+                      <li role="option" data-dropdown-option value="3">
+                        Option 3
+                      </li>
+                    </ul>
+                  </div>
+                  <% } else { %>
+                  <input
+                    type="text"
+                    id="textInput"
+                    name="textInput"
+                    class="custom-text-input"
+                    placeholder="0"
+                  />
+                  <% } %>
+                </div>
+                <% } %>
+              </div>
+            </div>
+            <div class="content-box">
+              <h3 class="item-detail__headline">주문 #4434 상세정보</h3>
+              <h4 class="font-bold mb-4 mt-8">일반</h4>
+              <div class="form-group grid grid-cols-3 gap-4 mb-8">
+                <div class="text-input --outline flex flex-col space-y-2">
+                  <label for="textInput" class="custom-label">생성 날짜</label>
+                  <div class="input-group flex space-x-2">
+                    <input
+                      type="text"
+                      id="textInput"
+                      name="textInput"
+                      class="custom-text-input"
+                      placeholder="0000-00-00"
+                    />
+                    <input
+                      type="text"
+                      id="textInput"
+                      name="textInput"
+                      class="custom-text-input --short flex-shrink"
+                      placeholder="0"
+                    />
+                    <input
+                      type="text"
+                      id="textInput"
+                      name="textInput"
+                      class="custom-text-input --short flex-shrink"
+                      placeholder="0"
+                    />
+                  </div>
+                </div>
+                <div class="text-input --outline flex flex-col space-y-2">
+                  <label for="textInput" class="custom-label" >아이온 결제 필요 금액
+                    </label >
+                    <div class="dropdown-select --outline flex-grow" data-dropdown>
+                      <input
+                        type="hidden"
+                        name="selectedValue"
+                        data-dropdown-value
+                      />
+                      <button
+                        type="button"
+                        class="dropdown-select-button w-full"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        data-dropdown-toggle
+                      >
+                        결제완료
+                      </button>
+                      <ul
+                        class="dropdown-select-menu hidden"
+                        role="listbox"
+                        data-dropdown-menu
+                      >
+                        <li role="option" data-dropdown-option value="1">
+                          Option 1
+                        </li>
+                        <li role="option" data-dropdown-option value="2">
+                          Option 2
+                        </li>
+                        <li role="option" data-dropdown-option value="3">
+                          Option 3
+                        </li>
+                      </ul>
+                    </div>
+                </div>
+                <div class="text-input --outline flex flex-col space-y-2">
+                  <label for="textInput" class="custom-label" >아이온 결제 필요 금액
+                    </label >
+                    <div class="dropdown-select --outline flex-grow" data-dropdown>
+                      <input
+                        type="hidden"
+                        name="selectedValue"
+                        data-dropdown-value
+                      />
+                      <button
+                        type="button"
+                        class="dropdown-select-button w-full"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        data-dropdown-toggle
+                      >
+                        최고관리자
+                      </button>
+                      <ul
+                        class="dropdown-select-menu hidden"
+                        role="listbox"
+                        data-dropdown-menu
+                      >
+                        <li role="option" data-dropdown-option value="1">
+                          Option 1
+                        </li>
+                        <li role="option" data-dropdown-option value="2">
+                          Option 2
+                        </li>
+                        <li role="option" data-dropdown-option value="3">
+                          Option 3
+                        </li>
+                      </ul>
+                    </div>
+                  <div class="button-group flex space-x-2">
+                    <button class="button --outline --xsmall">프로필</button>
+                    <button class="button --outline --xsmall">
+                      다른 주문 보기
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="data-group grid grid-cols-2 gap-4 py-4">
+                <% let addressLabels = ["청구", "배송"]; %> <% for (let i = 0; i < 2; i++) { %>
+                <div class="data-item">
+                  <h4 class="font-bold mb-4"><%= addressLabels[i]; %></h4>
+                  <div class="data-item-content space-y-2">
+                    <div class="text-lg font-bold text-gray-darker">
+                      레온어린이집3
+                    </div>
+                    <div class="flex space-x-2">
+                      <span>010-3333-3333</span>
+                    </div>
+                    <div>(11111) 경기도 평택시 오성면 서동대로 2061-22</div>
+                  </div>
+                </div>
+                <% } %>
+              </div>
+            </div>
+            <div class="content-box-group grid grid-cols-3 gap-4 items-start">
+              <!-- CONTENT BOX : 박스추가 -->
+              <div class="content-box">
+                <h3 class="item-detail__headline">박스추가</h3>
+                <div class="form-group flex flex-col gap-4 mb-6 mt-6">
+                  <% let boxLabels = ["A", "B", "C", "D"] %> <% for (let i = 0; i < 4; i++) { %>
+                  <div
+                    class="text-input --outline --small flex-row items-center space-x-2"
+                  >
+                    <label for="textInput" class="custom-label" ><%= boxLabels[i] %></label >
+                    <input
+                      type="text"
+                      id="textInput"
+                      name="textInput"
+                      class="custom-text-input"
+                      placeholder="0"
+                    />
+                  </div>
+                  <% } %>
+                </div>
+                <div class="form-group flex justify-end">
+                  <button
+                    class="button --solid --medium border-primary-500 bg-primary-500"
+                    aria-label="Submit"
+                  >
+                    <span class="button-text">저장</span>
+                  </button>
+                </div>
+              </div>
+              <!-- CONTENT BOX : 거래명세서 -->
+              <div
+                class="content-box col-span-2 col-start-2 row-span-2 row-start-1"
+              >
+                <h3 class="item-detail__headline">거래명세서</h3>
+                <!-- 폼 그룹 : 체크박스 -->
+                <div class="form-group flex flex-col space-y-2 mt-6">
+                  <div class="custom-checkbox">
+                    <input
+                      type="checkbox"
+                      id="checkbox1"
+                      data-name="checkbox1"
+                      class="hidden checkbox-input"
+                    />
+                    <label for="checkbox1" class="checkbox-label"></label>
+                    <label for="checkbox1" class="ml-2">일괄체크</label>
+                  </div>
+                  <div class="custom-checkbox">
+                    <input
+                      type="checkbox"
+                      id="checkbox2"
+                      data-name="checkbox2"
+                      class="hidden checkbox-input"
+                    />
+                    <label for="checkbox2" class="checkbox-label"></label>
+                    <label for="checkbox2" class="ml-2">[미출력] 가베</label>
+                  </div>
+                  <div class="custom-checkbox">
+                    <input
+                      type="checkbox"
+                      id="checkbox3"
+                      data-name="checkbox3"
+                      class="hidden checkbox-input"
+                    />
+                    <label for="checkbox3" class="checkbox-label"></label>
+                    <label for="checkbox3" class="ml-2">[미출력] 가베</label>
+                  </div>
+                </div>
+                <!-- 폼 그룹 : 체크박스 + 텍스트인풋 -->
+                <div class="form-group grid grid-cols-4 gap-4 py-4">
+                  <% for (let i = 0; i < 4; i++) { %>
+                  <div
+                    class="form-item flex flex-col space-y-2 items-start p-3 border border-gray-300 rounded"
+                  >
+                    <div class="custom-checkbox">
+                      <input
+                        type="checkbox"
+                        id="checkbox4"
+                        data-name="checkboxInput"
+                        class="hidden checkbox-input"
+                      />
+                      <label for="checkbox4" class="checkbox-label"></label>
+                      <label for="checkbox4" class="ml-2" ><%= boxLabels[i] %>타입</label >
+                    </div>
+                    <div
+                      class="text-input --outline --small --short flex items-center space-x-2"
+                    >
+                      <input
+                        type="text"
+                        id="textInput"
+                        name="textInput"
+                        class="custom-text-input"
+                        placeholder="0"
+                      />
+                      <span>개</span>
+                    </div>
+                  </div>
+                  <% } %>
+                </div>
+                <h4 class="font-bold mb-4 mt-8">특이사항</h4>
+                <div class="form-group grid grid-cols-3 gap-4 mb-8">
+                  <div class="text-input --outline flex flex-col space-y-2">
+                    <label for="textInput" class="custom-label"
+                      >아이온 결제 필요 금액</label
+                    >
+                    <input
+                      type="text"
+                      id="textInput"
+                      name="textInput"
+                      class="custom-text-input"
+                      placeholder="0"
+                    />
+                  </div>
+                  <div class="text-input --outline flex flex-col space-y-2">
+                    <label for="textInput" class="custom-label"
+                      >아이온 결제 필요 금액</label
+                    >
+                    <input
+                      type="text"
+                      id="textInput"
+                      name="textInput"
+                      class="custom-text-input"
+                      placeholder="0"
+                    />
+                  </div>
+                  <div class="text-input --outline flex flex-col space-y-2">
+                    <label for="textInput" class="custom-label"
+                      >아이온 결제 필요 금액</label
+                    >
+                    <input
+                      type="text"
+                      id="textInput"
+                      name="textInput"
+                      class="custom-text-input"
+                      placeholder="0"
+                    />
+                  </div>
+                </div>
+                <div class="form-group flex justify-end">
+                  <button
+                    class="button --solid --medium border-primary-500 bg-primary-500"
+                    aria-label="Submit"
+                  >
+                    <span class="button-text">출력하기</span>
+                  </button>
+                </div>
+              </div>
+              <!-- CONTENT BOX : 엑셀 다운로드 -->
+              <div class="content-box">
+                <h3 class="item-detail__headline">엑셀 다운로드</h3>
+                <div class="form-group flex justify-end">
+                  <button
+                    class="button --solid --medium border-primary-500 bg-primary-500"
+                    aria-label="Submit"
+                  >
+                    <span class="button-text">엑셀 다운로드하기</span>
+                  </button>
+                </div>
+              </div>
+              <!-- CONTENT BOX : 브레인 컬러 -->
+              <div class="content-box col-span-1">
+                <h3 class="item-detail__headline text-blue-600">브레인 컬러</h3>
+                <div class="form-group flex mt-4">
+                  <div
+                    class="text-list flex flex-col space-y-2 text-sm text-gray-darker"
+                  >
+                    <span>SKU</span>
+                    <span>products_per_box: 1</span>
+                    <span>box_type: A</span>
+                    <span>brand: ion edu</span>
+                    <span>송장정보가 없습니다.</span>
+                  </div>
+                </div>
+              </div>
+              <!-- CONTENT BOX : 주문메모 -->
+              <div class="content-box col-span-1">
+                <h3 class="item-detail__headline">주문메모</h3>
+                <div
+                  class="alert mt-4 mb-2 flex items-center space-x-2"
+                  role="alert"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1.5rem"
+                    height="1.5rem"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M12.0001 5.98969L19.5301 18.9997H4.47012L12.0001 5.98969ZM2.74012 17.9997C1.97012 19.3297 2.93012 20.9997 4.47012 20.9997H19.5301C21.0701 20.9997 22.0301 19.3297 21.2601 17.9997L13.7301 4.98969C12.9601 3.65969 11.0401 3.65969 10.2701 4.98969L2.74012 17.9997ZM11.0001 10.9997V12.9997C11.0001 13.5497 11.4501 13.9997 12.0001 13.9997C12.5501 13.9997 13.0001 13.5497 13.0001 12.9997V10.9997C13.0001 10.4497 12.5501 9.99969 12.0001 9.99969C11.4501 9.99969 11.0001 10.4497 11.0001 10.9997ZM11.0001 15.9997H13.0001V17.9997H11.0001V15.9997Z"
+                      fill="#D65A00"
+                    />
+                  </svg>
+                  <span>
+                    주문 상태가 결제 대기중에서 결제완료(으)로 변경됐습니다.
+                  </span>
+                </div>
+                <div class="flex items-center text-sm text-gray-darker">
+                  <span> 2023년 00월 00일 </span>
+                  <button class="button --text ml-auto">메모삭제</button>
+                </div>
+                <div class="form-group mt-6">
+                  <h5 class="text-md font-bold mb-3">메모 추가</h5>
+                  <div class="text-area">
+                    <label for="message" class="text-area-label hidden" >메시지 </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="4"
+                      class="text-area-field"
+                      placeholder="내용을 입력해 주세요"
+                    ></textarea>
+                  </div>
+                  <div class="form-item mt-4 flex items-center space-x-2">
+                    <div class="dropdown-select --outline flex-grow" data-dropdown>
+                      <input
+                        type="hidden"
+                        name="selectedValue"
+                        data-dropdown-value
+                      />
+                      <button
+                        type="button"
+                        class="dropdown-select-button w-full"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        data-dropdown-toggle
+                      >
+                        전체
+                      </button>
+                      <ul
+                        class="dropdown-select-menu hidden"
+                        role="listbox"
+                        data-dropdown-menu
+                      >
+                        <li role="option" data-dropdown-option value="1">
+                          Option 1
+                        </li>
+                        <li role="option" data-dropdown-option value="2">
+                          Option 2
+                        </li>
+                        <li role="option" data-dropdown-option value="3">
+                          Option 3
+                        </li>
+                      </ul>
+                    </div>
+                    <button
+                      class="button --solid --medium border-primary-500 bg-primary-500"
+                      aria-label="Submit"
+                    >
+                      <span class="button-text">검색하기</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- CONTENT BOX : 인보이스 -->
+              <div class="content-box col-span-1">
+                <h3 class="item-detail__headline">인보이스</h3>
+                <div class="form-group flex justify-end">
+                  <button
+                    class="button --solid --medium border-primary-500 bg-primary-500"
+                    aria-label="Submit"
+                  >
+                    <span class="button-text">인보이스 보기</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- CONTENT BOX : 일반배송 -->
+            <div class="content-box col-span-3">
+              <h3 class="item-detail__headline">일반배송</h3>
+              <div class="data-item flex items-center space-x-2 mt-4">
+                <dt class="font-bold">00,000원</dt>
+                <dd>가베 x 1</dd>
+              </div>
+            </div>
+            <!-- CONTENT BOX : 비용합계 -->
+            <div class="content-box col-span-3">
+              <h3 class="item-detail__headline">비용합계</h3>
+              <div class="text-group flex flex-col space-y-2 mt-4">
+                <div class="data-item flex items-center space-x-2">
+                  <dt class="font-bold">00,000원</dt>
+                  <dd>가베 x 1</dd>
+                </div>
+                <div class="data-item flex items-center space-x-2">
+                  <dt class="font-bold">00,000원</dt>
+                  <dd>가베 x 1</dd>
+                </div>
+              </div>
+              <hr class="custom-divider" />
+              <div class="data-item flex items-center space-x-2">
+                <dt class="font-bold">00,000원</dt>
+                <dd>가베 x 1</dd>
+              </div>
+            </div>
+            <!-- CONTENT BOX : 교환상품 -->
+            <div class="content-box col-span-3">
+              <h3 class="item-detail__headline">교환상품</h3>
+              <div class="content-group grid grid-cols-12 mb-8">
+                <div class="col-span-4">
+                  <h4 class="text-lg text-blue-600 font-bold mt-4">
+                    브레인 컬러
+                  </h4>
+                  <div class="form-group flex mt-4">
+                    <div
+                      class="text-list flex flex-col space-y-2 text-sm text-gray-darker"
+                    >
+                      <span>SKU</span>
+                      <span>products_per_box: 1</span>
+                      <span>box_type: A</span>
+                      <span>brand: ion edu</span>
+                      <span>송장정보가 없습니다.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-span-8">
+                  <div
+                    class="card-content-container overflow-auto w-full max-w-full"
+                  >
+                    <div class="data-table mb-2">
+                      <table>
+                        <caption>
+                          데이터테이블
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th>
+                              <div class="custom-checkbox">
+                                <input
+                                  type="checkbox"
+                                  id="checkboxTableHeader"
+                                  data-name="checkboxInput"
+                                  class="hidden checkbox-input"
+                                />
+                                <label
+                                  for="checkboxTableHeader"
+                                  class="checkbox-label"
+                                ></label>
+                              </div>
+                            </th>
+                            <th>이름</th>
+                            <th>가격</th>
+                            <th>수량</th>
+                            <th>장바구니</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% dummyTableData.forEach(function(person, i) { %>
+                          <tr>
+                            <td>
+                              <div class="custom-checkbox">
+                                <input
+                                  type="checkbox"
+                                  data-name="checkboxInput"
+                                  id="checkboxTableCell-<%= i %>"
+                                  class="hidden checkbox-input"
+                                />
+                                <label
+                                  for="checkboxTableCell-<%= i %>"
+                                  class="checkbox-label"
+                                ></label>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="cell-custom">
+                                <span class="cell-sub-text">
+                                  <%= person.name %>
+                                </span>
+                                <span>Some Text</span>
+                              </div>
+                            </td>
+                            <td><%= person.salary %></td>
+                            <td>
+                              <div class="stepper" aria-label="Quantity">
+                                <button
+                                  class="stepper-minus button --outline"
+                                  aria-label="Decrease value"
+                                >
+                                  -
+                                </button>
+                                <input
+                                  type="text"
+                                  class="stepper-input"
+                                  aria-valuenow="0"
+                                  value="0"
+                                  role="spinbutton"
+                                  aria-valuemin="0"
+                                />
+                                <button
+                                  class="stepper-plus button --outline"
+                                  aria-label="Increase value"
+                                >
+                                  +
+                                </button>
+                              </div>
+                            </td>
+                            <td>
+                              <button
+                                class="button --outline --small"
+                                aria-label="Submit"
+                              >
+                                <i class="icon --primary">
+                                  <iconify-icon
+                                    icon="ic:outline-shopping-bag"
+                                  ></iconify-icon>
+                                </i>
+                                <span class="button-text">장바구니</span>
+                              </button>
+                            </td>
+                          </tr>
+                          <% }) %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="content-group">
+                <div class="text-group flex flex-col space-y-2">
+                  <div class="data-item flex items-center space-x-2">
+                    <dt class="font-bold">00,000원</dt>
+                    <dd>가베 x 1</dd>
+                  </div>
+                  <div class="data-item flex items-center space-x-2">
+                    <dt class="font-bold">00,000원</dt>
+                    <dd>가베 x 1</dd>
+                  </div>
+                  <hr class="custom-divider bg-gray-300" />
+                  <div class="data-item flex items-center space-x-2">
+                    <dt class="font-bold">00,000원</dt>
+                    <dd>가베 x 1</dd>
+                  </div>
+                  <div class="text-item">
+                    (이 주문은 더이상 수정할 수 없습니다.)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
