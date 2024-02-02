@@ -1,0 +1,44 @@
+---
+layout: layout-dev
+pageTitle: Buttons
+---
+
+<div class="container p-4 mx-auto">
+  <!-- BUTTON -->
+  <div>
+    <!-- BUTTON - NORMAL - W/ICON -->
+    <button class="flex items-center button --outline --small space-x-2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1.5rem"
+        height="1.5rem"
+        viewBox="0 0 24 24"
+      >
+        <path fill="currentColor" d="M7 13h4v4H7zm6 0h4v4h-4z" />
+        <path
+          fill="currentColor"
+          d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14z"
+        />
+        <path fill="currentColor" d="M7 7h4v4H7zm6 0h4v4h-4z" />
+      </svg>
+      <span>BUTTON</span>
+    </button>
+
+    <!-- BUTTON - NORMAL -->
+    <button class="flex items-center button --outline --small space-x-2">
+      <span>BUTTON</span>
+    </button>
+
+    <!-- BUTTON - SUBMIT -->
+    <button
+      class="button --solid --medium border-primary-500 bg-primary-500"
+      aria-label="Submit"
+    >
+      <span class="button-text">검색하기</span>
+    </button>
+
+    <!-- BUTTON - LINK -->
+    <a href="" class="button --text">000000000</a>
+    <button class="button --text" type="button">Button</button>
+  </div>
+</div>
